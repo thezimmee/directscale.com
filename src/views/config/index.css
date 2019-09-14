@@ -1,0 +1,25 @@
+:root {
+  /*--ds-blue: hsl(196, 77%, 63%);*/
+  --ds-blue: hsl(196, 100%, 75%);
+  --ds-dark-blue: hsl(203, 100%, 37%);
+  --ds-dark-blue--hue: 203;
+  --ds-orange: hsl(36, 96%, 54%);
+  --ds-green: hsl(69, 68%, 52%);
+  --ds-gray: hsl(203, 10%, 59%);
+  --dark: hsl(209, 24%, 30%);
+  --light: hsl(0, 0%, 90%);
+  --gray: hsla(209, 23%, 30%, 0.54);
+}
+
+@custom-media --tablet (min-width: 600px);
+@custom-media --laptop (min-width: 900px);
+@custom-media --desktop (min-width: 1200px);
+@custom-media --wide (min-width: 1500px);
+@custom-media --from-tablet (min-width: 600px);
+@custom-media --from-laptop (min-width: 900px);
+@custom-media --from-desktop (min-width: 1200px);
+@custom-media --from-wide (min-width: 1500px);
+@custom-media --to-tablet (max-width: 599px);
+@custom-media --to-laptop (max-width: 899px);
+@custom-media --to-desktop (max-width: 1199px);
+@custom-media --to-wide (max-width: 1499px);

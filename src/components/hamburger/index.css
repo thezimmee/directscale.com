@@ -1,0 +1,76 @@
+:root {
+  --hb-height: 24px;
+  --hb-width: calc(var(--hb-height) * 1.6);
+  --hb-line-height: calc(var(--hb-height) / 6);
+}
+
+.hamburger {
+  width: var(--hb-width);
+  height: var(--hb-height);
+  position: relative;
+  cursor: pointer;
+  background: transparent;
+  border: 0 none;
+  z-index: 10;
+}
+
+.hamburger__top,
+.hamburger__middle,
+.hamburger__bottom {
+  background: var(--ds-gray);
+  opacity: 1;
+  display: block;
+  height: var(--hb-line-height);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: 0.2s cubic-bezier(0.4, 0.6, 0.4, 1.1);
+}
+.hamburger:hover span,
+.hamburger:focus span {
+  background: var(--ds-dark-blue);
+}
+
+.hamburger__top {
+  top: 0;
+}
+
+.hamburger__middle {
+  top: calc(50% - (var(--hb-line-height) / 2));
+  right: 0;
+  width: auto;
+}
+
+.hamburger__bottom {
+  top: calc(100% - var(--hb-line-height));
+}
+
+.off-canvas--is-open .hamburger__top,
+.hamburger--active .hamburger__top {
+  transform: rotate(45deg);
+  top: calc(50% - (var(--hb-line-height) / 2));
+  left: 0;
+}
+
+.off-canvas--is-open .hamburger__middle,
+.hamburger--active .hamburger__middle {
+  left: calc(50% - (var(--hb-line-height) / 2));
+  right: calc(50% - (var(--hb-line-height) / 2));
+  opacity: 0;
+}
+
+.off-canvas--is-open .hamburger__bottom,
+.hamburger--active .hamburger__bottom {
+  top: calc(50% - (var(--hb-line-height) / 2));
+  transform: rotate(-45deg);
+  left: 0;
+}
+
+@media (--desktop) {
+  .hamburger {
+    display: none;
+  }
+}

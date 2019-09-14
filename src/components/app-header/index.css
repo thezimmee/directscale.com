@@ -1,0 +1,26 @@
+:root {
+  --app-header-height: 3rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--app-header-height);
+  position: relative;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 2px 4px hsla(0, 0%, 0%, 0.15);
+  font-size: 16px;
+  text-transform: lowercase;
+}
+
+.header__logo {
+  display: flex;
+  width: 200px;
+
+  svg {
+    width: 100%;
+  }
+}

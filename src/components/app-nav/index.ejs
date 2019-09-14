@@ -1,0 +1,35 @@
+<!-- Primary navigation links. -->
+<nav class="nav">
+  <% nav.links.forEach(function (link) { _%>
+    <% if (link.children) { _%>
+      <div class="nav__menu">
+        <a class="nav__link" href="<%= link.url %>"><%= link.label %> <icon name="chevron" class="nav__chevron"></icon></a>
+        <div class="nav__submenu">
+          <% link.children.forEach(function (child) { _%>
+            <a class="nav__sublink" href="<%= child.url %>"><%= child.label %></a>
+          <%_ }) %>
+        </div>
+      </div>
+    <%_ } else if (link.url) { _%>
+      <a class="nav__link" href="<%= link.url %>"><%= link.label %></a>
+    <%_ } %>
+    <hr>
+  <%_ }) %>
+</nav>
+
+<div class="nav__contact">
+  <!-- Search feature. -->
+  <a class="button button--icon">
+    <icon class="nav__search-icon" name="search"></icon>
+    <span class="nav__search-label">Search</span>
+  </a>
+
+  <!-- Phone contact. -->
+  <a class="button button--icon" href="tel:<%= site.phone %>">
+    <icon class="nav__phone-icon" name="phone"></icon>
+    <span class="nav__phone-label"><%= site.phoneFormatted %></span>
+  </a>
+
+  <!-- Demo CTA. -->
+  <a class="button button--primary" href="#" title="Request a demo">Request a demo</a>
+</div>

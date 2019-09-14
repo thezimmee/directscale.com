@@ -1,0 +1,4 @@
+<%
+  var name = typeof name === undefined ? '' : name;
+_%>
+<% if (name) { %><%- include(`/assets/svg/${name}.min.svg`) %><% } %>

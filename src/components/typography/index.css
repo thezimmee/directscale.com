@@ -1,0 +1,76 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../assets/fonts/montserrat/montserrat-black-webfont.woff2")
+      format("woff2"),
+    url("../../assets/fonts/montserrat/montserrat-black-webfont.woff")
+      format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../assets/fonts/montserrat/montserrat-regular-webfont.woff2")
+      format("woff2"),
+    url("../../assets/fonts/montserrat/montserrat-regular-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../assets/fonts/montserrat/montserrat-semibold-webfont.woff2")
+      format("woff2"),
+    url("../../assets/fonts/montserrat/montserrat-semibold-webfont.woff")
+      format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+html {
+  font-size: 24px;
+}
+
+body {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 32px;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+p,
+ul,
+ol,
+dl {
+  margin-top: 1rem;
+}
+
+ul,
+ol,
+dl {
+  padding-left: 1rem;
+}
+
+a {
+  color: var(--ds-dark-blue);
+  transition: color 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: var(--ds-gray);
+  }
+}

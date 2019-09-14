@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= site.title %></title>
+    <meta name="description" content="<%= site.description %>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#57C1E9" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <!-- Styles. -->
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <!-- Content. -->
+    <div class="page">
+      <app-header></app-header>
+
+      <div class="page__scroller">
+        <hero-section
+          class="home__banner"
+          heading="Empower. Satisfy. Level up."
+          image="assets/images/banner--home.png"
+        >
+          <div slot="content">
+            <p class="hero__lede">
+              Harness the potential of all your teams with one connected
+              platform that grows with you.
+            </p>
+            <p class="hero__cta">
+              <a class="button" href="#">Request a demo</a>
+              <a class="button button--outlined" href="#">Watch the video</a>
+            </p>
+          </div>
+        </hero-section>
+
+        <hero-section
+          heading="What they need. When they need it."
+          image="assets/images/what-they-need.png"
+          flip="true"
+          theme="gray"
+        >
+          <div slot="content">
+            <p>
+              DirectScale is the only MLM software product with advanced
+              configurability out of the box--no developers required. Less pain
+              for you + more tailored experiences for field users = more sales.
+            </p>
+            <ul>
+              <li>Custom-branded web office</li>
+              <li>Experience segmentation by user type</li>
+              <li>Virtual selling community tools</li>
+              <li>Distributor training and dashboards</li>
+            </ul>
+          </div>
+        </hero-section>
+
+        <hero-section
+          heading="All in one and one for all."
+          image="assets/images/all-in-one.png"
+        >
+          <div slot="content">
+            <p>
+              Our field and corporate systems are built with each other (and
+              you) in mind. You have all you need to manage your business from
+              end to end with better communication and more data access.
+            </p>
+            <ul>
+              <li>Rules-based commissions engine</li>
+              <li>Operations and logistics management</li>
+              <li>Open data structure with APIs</li>
+              <li>
+                <a href="#tools">Integrate your tax</a>,
+                <a href="#">shipping</a>, <a href="#">financial</a>, and
+                <a href="#">other tools</a>
+              </li>
+            </ul>
+          </div>
+        </hero-section>
+
+        <hero-section
+          heading="The solution that never sleeps."
+          image="assets/images/the-solution.png"
+          flip="true"
+          theme="gray"
+        >
+          <div slot="content">
+            <p>
+              DirectScale is architected as SaaS, which means better security,
+              more uptime, and constant upgrades as we innovate. And when you
+              grow, it scales with you in real time.
+            </p>
+            <ul>
+              <li>100% cloud hosted</li>
+              <li>Modern and simple user interface</li>
+              <li>Built for mobile</li>
+            </ul>
+          </div>
+        </hero-section>
+
+        <hero-section
+          heading="Better together."
+          image="assets/images/better-together.png"
+        >
+          <div slot="content">
+            <p>
+              By bringing together industry experts from direct selling and
+              technology, DirectScale understands what you need. We've built our
+              organization to serve clients and help you learn how to grow your
+              business.
+            </p>
+            <ul>
+              <li>Access to our dedicated support team</li>
+              <li>Consultative, data-driven insight provisions</li>
+              <li>Decades of industry experience</li>
+            </ul>
+          </div>
+        </hero-section>
+      </div>
+
+      <div class="page__overlay"></div>
+    </div>
+
+    <!-- Scripts. -->
+    <script src="app.js"></script>
+  </body>
+</html>

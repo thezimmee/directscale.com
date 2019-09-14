@@ -1,0 +1,18 @@
+<%
+  var heading = typeof heading === undefined ? '' : heading;
+  var flip = typeof flip === undefined ? true : flip;
+  var image = typeof image === undefined ? '' : image;
+  var theme = typeof theme === undefined ? '' : theme;
+_%>
+<div class="hero<%= flip ? ' hero--flip' : '' %><%= theme ? ` hero--${theme}` : '' %>">
+  <div class="hero__inner">
+    <div class="hero__content">
+      <h3 class="hero__title"><%= heading %></h3>
+      <slot name="content"></slot>
+    </div>
+
+    <div class="hero__image">
+      <img src="<%= image %>">
+    </div>
+  </div>
+</div>
