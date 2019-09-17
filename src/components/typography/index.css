@@ -57,6 +57,10 @@ ul,
 ol,
 dl {
   margin-top: 1rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 ul,

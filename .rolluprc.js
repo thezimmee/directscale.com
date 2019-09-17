@@ -11,15 +11,18 @@ import configGen from '@brikcss/rollup-config-generator'
 // Generate and export rollup configuration.
 //
 
-export default configGen.create({
-  type: 'iife',
-  input: 'src/app.js',
-  output: {
-    file: 'build/app.js'
+export default configGen.create([
+  {
+    type: 'iife',
+    input: 'src/app.js',
+    output: {
+      file: 'build/app.js'
+    }
+  }, {
+    type: 'iife',
+    input: 'src/views/home/index.js',
+    output: {
+      file: 'build/index.js'
+    }
   }
-  // plugins: [
-  //   replace({
-  //     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-  //   })
-  // ]
-})
+])

@@ -1,0 +1,8 @@
+<%
+  var bgImage = typeof bgImage === undefined ? '' : bgImage;
+_%>
+<div class="slider__slide-bg"<% if (bgImage) { %> style="background-image: url('<%= bgImage %>');"<% } %>>
+  <div class="slider__slide-content">
+    <slot></slot>
+  </div>
+</div>

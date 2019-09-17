@@ -12,14 +12,17 @@
   </head>
   <body>
     <!-- Content. -->
+    <!-- <testimonials class="home__testimonials" data-autoplay="5000"></testimonials> -->
     <div class="page">
       <app-header></app-header>
 
       <div class="page__scroller">
         <hero-section
           class="home__banner"
-          heading="Empower. Satisfy. Level up."
-          image="assets/images/banner--home.png"
+          data-heading="Empower. Satisfy. Level up."
+          data-image="assets/images/banner--home.png"
+          data-bg-image="assets/images/bg.png"
+          data-theme="blue"
         >
           <div slot="content">
             <p class="hero__lede">
@@ -34,10 +37,10 @@
         </hero-section>
 
         <hero-section
-          heading="What they need. When they need it."
-          image="assets/images/what-they-need.png"
-          flip="true"
-          theme="gray"
+          data-heading="What they need. When they need it."
+          data-image="assets/images/what-they-need.png"
+          data-flip="true"
+          data-theme="gray"
         >
           <div slot="content">
             <p>
@@ -55,8 +58,8 @@
         </hero-section>
 
         <hero-section
-          heading="All in one and one for all."
-          image="assets/images/all-in-one.png"
+          data-heading="All in one and one for all."
+          data-image="assets/images/all-in-one.png"
         >
           <div slot="content">
             <p>
@@ -78,10 +81,10 @@
         </hero-section>
 
         <hero-section
-          heading="The solution that never sleeps."
-          image="assets/images/the-solution.png"
-          flip="true"
-          theme="gray"
+          data-heading="The solution that never sleeps."
+          data-image="assets/images/the-solution.png"
+          data-flip="true"
+          data-theme="gray"
         >
           <div slot="content">
             <p>
@@ -98,8 +101,8 @@
         </hero-section>
 
         <hero-section
-          heading="Better together."
-          image="assets/images/better-together.png"
+          data-heading="Better together."
+          data-image="assets/images/better-together.png"
         >
           <div slot="content">
             <p>
@@ -115,6 +118,17 @@
             </ul>
           </div>
         </hero-section>
+
+        <hero-section
+          class="home__testimonials"
+          data-heading="Clients who grow with us!"
+          data-theme="green"
+          data-bg-image="assets/svg/icon-pattern.svg"
+        >
+          <div slot="content">
+            <testimonials data-autoplay="6000"></testimonials>
+          </div>
+        </hero-section>
       </div>
 
       <div class="page__overlay"></div>
@@ -122,5 +136,6 @@
 
     <!-- Scripts. -->
     <script src="app.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

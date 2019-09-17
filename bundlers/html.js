@@ -9,7 +9,6 @@ const _ = {
   components: {}
 }
 let md
-let $
 let lorem
 
 module.exports = (bundle, bundler) => {
@@ -23,6 +22,7 @@ module.exports = (bundle, bundler) => {
         selector: 'component',
         paths: [],
         unwrap: true,
+        copyAttrs: ['class', 'id'],
         ejs: {},
         map: {}
       },
@@ -66,64 +66,129 @@ module.exports = (bundle, bundler) => {
   if (config.markdown && typeof config.markdown.init === 'function') config.markdown.init(config.markdown.options)
   if (config.lorem && typeof config.lorem.init === 'function') lorem = config.lorem.init(config.lorem.options)
   if (config.components && ((config.components.paths && config.components.paths.length) || (config.components.map && Object.keys(config.components.map).length))) {
-    initComponents(config.components)
+    initComponents(config, bundle)
   }
 
   //
   // Iterate through changed files.
   //
   bundle.changed.forEach(file => {
-    // Create the dom and plugins.
-    $ = cheerio.load(file.content, config.cheerio)
-    $.prototype.spaceless = processSpaceless
-    $.prototype.lorem = processLorem
-    $.prototype.loremParagraphs = processLoremParagraphs
-    $.prototype.loremWords = processLoremWords
-    $.prototype.loremSentences = processLoremSentences
-    $.prototype.unwrap = processUnwrap
-    $.prototype.markdown = processMarkdown
-    $.prototype.component = processComponent
+    // // Create the dom and plugins.
+    // $ = cheerio.load(file.content, config.cheerio)
+    // $.prototype.spaceless = processSpaceless
+    // $.prototype.lorem = processLorem
+    // $.prototype.loremParagraphs = processLoremParagraphs
+    // $.prototype.loremWords = processLoremWords
+    // $.prototype.loremSentences = processLoremSentences
+    // $.prototype.unwrap = processUnwrap
+    // $.prototype.markdown = processMarkdown
 
-    // Process components.
-    if (config.components) {
-      if (config.components.selector) {
-        $(config.components.selector).component(config.components, bundle.data)
-      }
-      if (Object.keys(_.components).length) {
-        Object.keys(_.components).forEach(tag => {
-          $(tag).component(config.components, bundle.data)
-        })
-      }
-    }
+    // // Process components.
+    // if (config.components) {
+    //   if (config.components.selector) {
+    //     $(config.components.selector).component(config, bundle)
+    //   }
+    //   if (Object.keys(_.components).length) {
+    //     Object.keys(_.components).forEach(tag => {
+    //       $(tag).component(config, bundle)
+    //     })
+    //   }
+    // }
 
-    // Process built-in transforms.
-    if (config.markdown) $(config.markdown.selector).markdown()
-    if (config.lorem) {
-      if (config.lorem.auto) $(config.lorem.auto).lorem()
-      if (config.lorem.paragraphs) $(config.lorem.paragraphs).loremParagraphs()
-      if (config.lorem.sentences) $(config.lorem.sentences).loremSentences()
-      if (config.lorem.words) $(config.lorem.words).loremWords()
-    }
-    if (config.spaceless) $(config.spaceless).spaceless()
-    if (config.unwrap) $(config.unwrap).unwrap()
+    // // Process built-in transforms.
+    // if (config.markdown) $(config.markdown.selector).markdown()
+    // if (config.lorem) {
+    //   if (config.lorem.auto) $(config.lorem.auto).lorem()
+    //   if (config.lorem.paragraphs) $(config.lorem.paragraphs).loremParagraphs()
+    //   if (config.lorem.sentences) $(config.lorem.sentences).loremSentences()
+    //   if (config.lorem.words) $(config.lorem.words).loremWords()
+    // }
+    // if (config.spaceless) $(config.spaceless).spaceless()
+    // if (config.unwrap) $(config.unwrap).unwrap()
 
-    // Process custom transforms.
-    if (config.custom && config.custom.length) {
-      config.custom.forEach(transform => {
-        if (typeof transform === 'function') transform($)
-      })
-    }
+    // // Process custom transforms.
+    // if (config.custom && config.custom.length) {
+    //   config.custom.forEach(transform => {
+    //     if (typeof transform === 'function') transform($)
+    //   })
+    // }
 
-    // Update file.content and return
-    file.content = $.html()
-    if (config.minify) {
-      const minify = require('html-minifier').minify
-      file.content = minify(file.content, config.minifier)
-    }
+    // // Update file.content and return
+    // file.content = $.html()
+    // if (config.minify) {
+    //   const minify = require('html-minifier').minify
+    //   file.content = minify(file.content, config.minifier)
+    // }
+    file.content = parseHTML(file.content, { config, bundle })
     return file
   })
 
   return bundle
+}
+
+function parseHTML (html, { config = {}, bundle = {} } = {}) {
+  // Create the dom and plugins.
+  const $ = cheerio.load(html, config.cheerio)
+
+  // Process components.
+  if (config.components) {
+    $.prototype.component = processComponent
+    if (config.components.selector) {
+      $(config.components.selector).component($, config, bundle)
+    }
+    if (Object.keys(_.components).length) {
+      Object.keys(_.components).forEach(tag => {
+        $(tag).component($, config, bundle)
+      })
+    }
+  }
+
+  // Process built-in transforms.
+  if (config.markdown) {
+    $.prototype.markdown = processMarkdown
+    $(config.markdown.selector).markdown($)
+  }
+  if (config.lorem) {
+    if (config.lorem.auto) {
+      $.prototype.lorem = processLorem
+      $(config.lorem.auto).lorem($)
+    }
+    if (config.lorem.paragraphs) {
+      $.prototype.loremParagraphs = processLoremParagraphs
+      $(config.lorem.paragraphs).loremParagraphs($)
+    }
+    if (config.lorem.sentences) {
+      $.prototype.loremSentences = processLoremSentences
+      $(config.lorem.sentences).loremSentences($)
+    }
+    if (config.lorem.words) {
+      $.prototype.loremWords = processLoremWords
+      $(config.lorem.words).loremWords($)
+    }
+  }
+  if (config.spaceless) {
+    $.prototype.spaceless = processSpaceless
+    $(config.spaceless).spaceless($)
+  }
+  if (config.unwrap) {
+    $.prototype.unwrap = processUnwrap
+    $(config.unwrap).unwrap($)
+  }
+
+  // Process custom transforms.
+  if (config.custom && config.custom.length) {
+    config.custom.forEach(transform => {
+      if (typeof transform === 'function') transform($)
+    })
+  }
+
+  // Update html and return
+  html = $.html()
+  if (config.minify) {
+    const minify = require('html-minifier').minify
+    html = minify(html, config.minifier)
+  }
+  return html
 }
 
 /**
@@ -280,7 +345,7 @@ function trimNode (node, preserve, trimSiblings) {
 /**
  * Make child elements spaceless.
  */
-function processSpaceless () {
+function processSpaceless ($) {
   this.each((i, el) => {
     const preserve = isInlineElement(el) || ['inline', 'preserve'].includes(el.attribs.spaceless)
     trimNode(el, preserve)
@@ -295,7 +360,7 @@ function processSpaceless () {
  * @param {string} [type='paragraphs']  Type of lorem text. Can be 'paragraphs', 'sentences', or 'words'.
  * @param {number} [arg3.value=5]  Number of paragraphs/sentences/words to populate with.
  */
-function processLoremNode (el, type = 'paragraphs', { value = 5, attr, wrap } = {}) {
+function processLoremNode ($, el, type = 'paragraphs', { value = 5, attr, wrap } = {}) {
   // Setup.
   const elAttrs = el.attribs
   const attrs = [type, type[0], `lorem-${type}`]
@@ -313,19 +378,19 @@ function processLoremNode (el, type = 'paragraphs', { value = 5, attr, wrap } = 
   $(el)[el.name === 'lorem' ? 'replaceWith' : 'html'](content)
 }
 
-function processLoremSentences () {
-  this.each((i, el) => processLoremNode(el, 'sentences', { value: 3 }))
+function processLoremSentences ($) {
+  this.each((i, el) => processLoremNode($, el, 'sentences', { value: 3 }))
 }
 
-function processLoremWords () {
-  this.each((i, el) => processLoremNode(el, 'words', { value: 8 }))
+function processLoremWords ($) {
+  this.each((i, el) => processLoremNode($, el, 'words', { value: 8 }))
 }
 
-function processLoremParagraphs () {
-  this.each((i, el) => processLoremNode(el))
+function processLoremParagraphs ($) {
+  this.each((i, el) => processLoremNode($, el))
 }
 
-function processLorem () {
+function processLorem ($) {
   const types = {
     paragraphs: ['p', 'paragraphs', 'lorem'],
     words: ['w', 'words', 'lorem-words'],
@@ -341,14 +406,14 @@ function processLorem () {
         }
       })
     })
-    processLoremNode(el, config.type, { attr: config.attr })
+    processLoremNode($, el, config.type, { attr: config.attr })
   })
 }
 
 /**
  * Unwrap tag from content.
  */
-function processUnwrap () {
+function processUnwrap ($) {
   this.each((i, el) => {
     $(el).replaceWith($(el).html())
   })
@@ -357,7 +422,7 @@ function processUnwrap () {
 /**
  * Process content inside a selector as markdown.
  */
-function processMarkdown () {
+function processMarkdown ($) {
   this.each((i, el) => {
     const attrs = el.attribs
     const $el = $(el)
@@ -419,88 +484,138 @@ function processMarkdown () {
 * elements can be inserted in a component, just be sure they each have a
 * different [name] attribute.
 */
-function initComponents (config) {
+function initComponents (config, bundle) {
   // Cache components in config.paths.
-  if (!(config.paths instanceof Array)) config.paths = [config.paths]
-  if (config.paths && config.paths.length) {
-    config.paths.forEach(p => {
-      fs.readdirSync(p).forEach(slug => {
-        const dir = path.join(p, slug)
-        if (!fs.statSync(dir).isDirectory()) return
-        const template = fs.pathExistsSync(path.join(dir, 'index.ejs'))
-          ? fs.readFileSync(path.join(dir, 'index.ejs'), 'utf8')
-          : fs.pathExistsSync(path.join(dir, `${slug}.ejs`))
-            ? fs.readFileSync(path.join(dir, `${slug}.ejs`), 'utf8')
-            : null
-        if (!template) return
-        _.components[slug] = template
-      })
-    })
+  if (!(config.components.paths instanceof Array)) config.components.paths = [config.components.paths]
+  if (config.components.paths && config.components.paths.length) {
+    config.components.paths.forEach(dir => readComponentsInDirectory(dir, bundle))
   }
 
   // Cache components in config.map.
-  if (config.map && Object.keys(config.map).length) {
-    Object.keys(config.map).forEach(tag => {
-      _.components[tag] = fs.readFileSync(config.map[tag], 'utf8')
+  if (config.components.map && Object.keys(config.components.map).length) {
+    Object.keys(config.components.map).forEach(tag => {
+      _.components[tag] = fs.readFileSync(config.components.map[tag], 'utf8')
+      addFileToWatcher(config.components.map[tag], bundle)
     })
+  }
+
+  console.log('COMPONENTS:', Object.keys(_.components))
+}
+
+/**
+* Recursively read components in a directory.
+*/
+function readComponentsInDirectory (dir, bundle, parent) {
+  fs.readdirSync(dir).forEach(slug => {
+    const dirPath = path.join(dir, slug)
+    if (!fs.statSync(dirPath).isDirectory()) return
+    const srcPath = fs.pathExistsSync(path.join(dirPath, 'index.ejs'))
+      ? path.join(dirPath, 'index.ejs')
+      : fs.pathExistsSync(path.join(dirPath, `${slug}.ejs`))
+        ? path.join(dirPath, `${slug}.ejs`)
+        : null
+    if (!srcPath) return
+    _.components[(parent ? parent + '-' : '') + slug] = fs.readFileSync(srcPath, 'utf8')
+    addFileToWatcher(srcPath, bundle)
+    readComponentsInDirectory(dirPath, bundle, slug)
+  })
+}
+
+/*
+* Add filepath to bundle watcher.
+*/
+function addFileToWatcher (filepath, bundle) {
+  if (!bundle.options.watchFiles.includes(filepath)) {
+    bundle.options.watchFiles.push(filepath)
   }
 }
 
 /*
 * Process components.
 */
-function processComponent (config, data) {
+function processComponent ($, config, bundle) {
   this.each((i, el) => {
-    const attrs = Object.assign({}, el.attribs)
     const $el = $(el)
+    const data = Object.assign({}, $el.data())
     // Convert attributes to their correct type, and dash-case to camelCase.
-    Object.keys(attrs).forEach(key => {
+    Object.keys(data).forEach(key => {
       // Boolean types.
-      if (attrs[key] === 'true' || attrs[key] === '') attrs[key] = true
-      else if (attrs[key] === 'false') attrs[key] = false
+      if (data[key] === 'true' || data[key] === '') data[key] = true
+      else if (data[key] === 'false') data[key] = false
       // Object/Array types.
       else if (
-        (attrs[key][0] === '[' && attrs[key][attrs[key].length - 1] === ']') ||
-        (attrs[key][0] === '{' && attrs[key][attrs[key].length - 1] === '}')
-      ) attrs[key] = JSON.parse(attrs[key])
+        (data[key][0] === '[' && data[key][data[key].length - 1] === ']') ||
+        (data[key][0] === '{' && data[key][data[key].length - 1] === '}')
+      ) data[key] = JSON.parse(data[key])
       // Number types.
-      else if (!isNaN(+attrs[key])) attrs[key] = +attrs[key]
+      else if (!isNaN(+data[key])) data[key] = +data[key]
       // Convert dash-case to camelCase.
       if (key.indexOf('-') > -1) {
-        attrs[key.replace(/-([a-z])/g, (m, w) => w.toUpperCase())] = attrs[key]
-        delete attrs[key]
+        data[key.replace(/-([a-z])/g, (m, w) => w.toUpperCase())] = data[key]
+        delete data[key]
       }
     })
+
     // Get template source.
     let template
-    if ($el.is(config.selector)) {
-      if (!attrs.is) {
+    if ($el.is(config.components.selector)) {
+      if (!el.attribs.is) {
         console.warn('No [is] attribute on <component/>. Skipped.')
         return
       }
-      template = _.components[attrs.is]
-      if (!template && fs.pathExistsSync(attrs.is)) template = fs.readFileSync(attrs.is, 'utf8')
+      template = _.components[el.attribs.is]
+      if (!template && fs.pathExistsSync(el.attribs.is)) template = fs.readFileSync(el.attribs.is, 'utf8')
     } else {
       template = _.components[el.name]
     }
     if (!template) {
-      console.warn(`Component not found for <${el.name}${attrs.is ? ` is="${attrs.is}" ` : ''}/>. Skipped.`)
+      console.warn(`Component not found for <${el.name}${el.attribs.is ? ` is="${el.attribs.is}" ` : ''}/>. Skipped.`)
       return
     }
+
     // Cache slotted children and render initial template content.
+    template = parseHTML(ejs.render(template, Object.assign({}, bundle.data, data), config.components.ejs), { config, bundle })
     const $children = $el.children()
-    $el.prepend(ejs.render(template, Object.assign({}, data, attrs), config.ejs))
-    if (config.unwrap && attrs.class) {
-      $el.children().first().addClass(attrs.class)
-    }
+    $el.prepend(template)
+
     // Render slotted content.
-    $children.each((i, $child) => {
-      if (!$child.attribs.slot) return
-      const $slot = $el.find(`slot[name=${$child.attribs.slot}]`)
-      if (!$slot.length) return
-      $slot.first().replaceWith($child)
+    const defaultSlot = $el.find('slot:not([name])')
+    $children.each((i, child) => {
+      // If child has no named slot...
+      if (!child.attribs.slot) {
+        // If default slot doesn't exist, do nothing (remove content).
+        if (!defaultSlot.length) {
+          console.warn(`<${el.name}/> has no default <slot/>. Some content was removed.`)
+          $(child).remove()
+          return
+        }
+        // Otherwise append to defualt slot.
+        defaultSlot.first().append(child)
+      // If child has a named slot, use the named slot...
+      } else {
+        const slot = $el.find(`slot[name="${child.attribs.slot}"]`)
+        // If named slot wasn't found, do nothing (remove child content).
+        if (!slot.length) {
+          console.warn(`<slot name="${child.attribs.slot}" /> not found in <${el.name} />. Some content was removed.`)
+          $(child).remove()
+          return
+        }
+        // Replace the existing slot with corresponding child content.
+        slot.first().replaceWith(child)
+      }
     })
+    defaultSlot.first().replaceWith(defaultSlot.first().html())
+
     // Unwrap it.
-    if (config.unwrap) $el.replaceWith($el.html())
+    if (config.components.unwrap) {
+      // Copy attributes down to first child.
+      if (Object.keys(el.attribs).length) {
+        Object.keys(el.attribs).forEach(attr => {
+          const existingAttr = $el.children().first().attr(attr)
+          $el.children().first().attr(attr, existingAttr ? [existingAttr, el.attribs[attr]].join(' ') : el.attribs[attr])
+        })
+      }
+      $el.replaceWith($el.html())
+    }
   })
 }

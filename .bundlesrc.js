@@ -81,9 +81,6 @@ module.exports = {
     {
       id: 'pages',
       input: ['src/index.html'],
-      options: {
-        watchFiles: ['src/components/**/*.ejs', 'src/views/**/*.ejs']
-      },
       bundlers: [
         {
           run: '@bundles/bundles-ejs',
@@ -135,7 +132,8 @@ module.exports = {
         // 'src/{.htaccess,browserconfig.xml,favicon.ico,humans.txt,robots.txt,site.webmanifest}',
         // 'src/*.png',
         'src/assets/images/*',
-        'src/assets/fonts/montserrat/'
+        'src/assets/fonts/montserrat/',
+        'src/assets/svg/icon-pattern.svg'
         // 'src/assets/**/*'
       ],
       bundlers: [

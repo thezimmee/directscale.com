@@ -1,0 +1,45 @@
+.testimonials {
+  padding-top: 3.5rem;
+  padding-bottom: 6rem;
+
+  &__quote1,
+  &__quote2 {
+    height: 4rem;
+    width: 4rem;
+    position: absolute;
+    left: calc(50% - 2rem);
+    fill: hsla(0, 0%, 100%, 0.7);
+  }
+
+  &__quote1 {
+    top: 0;
+    transform: rotate(180deg);
+  }
+
+  &__quote2 {
+    bottom: 2.25rem;
+  }
+
+  .slider__previous,
+  .slider__next {
+    svg {
+      fill: hsla(0, 0%, 100%, 0.4);
+      transition: fill 0.2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      svg {
+        fill: hsla(0, 0%, 100%, 0.85);
+      }
+    }
+  }
+
+  .slider__dot {
+    background-color: hsla(0, 0%, 100%, 0.3);
+    transition: fill 0.2s ease-in-out;
+  }
+  .slider__dot--is-active {
+    background-color: hsla(0, 0%, 100%, 1);
+  }
+}

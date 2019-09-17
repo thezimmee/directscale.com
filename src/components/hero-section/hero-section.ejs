@@ -1,18 +1,25 @@
 <%
   var heading = typeof heading === undefined ? '' : heading;
-  var flip = typeof flip === undefined ? true : flip;
+  var flip = typeof flip === undefined ? false : flip;
+  var center = typeof center === undefined ? false : center;
   var image = typeof image === undefined ? '' : image;
+  var bgImage = typeof bgImage === undefined ? '' : bgImage;
   var theme = typeof theme === undefined ? '' : theme;
 _%>
-<div class="hero<%= flip ? ' hero--flip' : '' %><%= theme ? ` hero--${theme}` : '' %>">
+<div class="hero<%= flip ? ' hero--flip' : '' %><%= theme ? ` hero--${theme}` : '' %><%= (center || !image) ? ' hero--centered' : '' %>">
   <div class="hero__inner">
+
     <div class="hero__content">
       <h3 class="hero__title"><%= heading %></h3>
       <slot name="content"></slot>
     </div>
 
-    <div class="hero__image">
+    <% if (image) { %><div class="hero__image">
       <img src="<%= image %>">
-    </div>
+    </div><% } %>
+
   </div>
+
+  <% if (bgImage) { %><div class="hero__bg" style="background-image: url('<%= bgImage %>');"></div><% } %>
+
 </div>

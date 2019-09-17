@@ -3,7 +3,7 @@
   <% nav.links.forEach(function (link) { _%>
     <% if (link.children) { _%>
       <div class="nav__menu">
-        <a class="nav__link" href="<%= link.url %>"><%= link.label %> <icon name="chevron" class="nav__chevron"></icon></a>
+        <a class="nav__link" href="<%= link.url %>"><%= link.label %> <icon data-name="chevron" class="nav__chevron"></icon></a>
         <div class="nav__submenu">
           <% link.children.forEach(function (child) { _%>
             <a class="nav__sublink" href="<%= child.url %>"><%= child.label %></a>
@@ -20,13 +20,13 @@
 <div class="nav__contact">
   <!-- Search feature. -->
   <a class="button button--icon">
-    <icon class="nav__search-icon" name="search"></icon>
+    <icon class="nav__search-icon" data-name="search"></icon>
     <span class="nav__search-label">Search</span>
   </a>
 
   <!-- Phone contact. -->
   <a class="button button--icon" href="tel:<%= site.phone %>">
-    <icon class="nav__phone-icon" name="phone"></icon>
+    <icon class="nav__phone-icon" data-name="phone"></icon>
     <span class="nav__phone-label"><%= site.phoneFormatted %></span>
   </a>
 

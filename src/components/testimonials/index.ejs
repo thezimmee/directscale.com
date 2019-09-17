@@ -1,0 +1,16 @@
+<slider class="testimonials">
+  <div class="slider__slides"><% testimonials.forEach(testimonial => { %>
+    <slider-slide <% if (testimonial.content) {%> data-content="yup"<% } %>>
+      <div class="testimonial">
+        <%- testimonial.content %>
+        <% if (testimonial.name || testimonial.title) { %><p>
+          <%_ if (testimonial.name) { %><strong class="testimonial__name"><%= testimonial.name %></strong><% } _%>
+          <%_ if (testimonial.name && testimonial.title) { _%><br><%_ } _%>
+          <%_ if (testimonial.title) { %><span class="testimonial__title"><%= testimonial.title %></span><% } _%>
+        </p><% } %>
+      </div>
+    </slider-slide>
+  <% }) %></div>
+  <icon class="testimonials__quote1" data-name="quote"></icon>
+  <icon class="testimonials__quote2" data-name="quote"></icon>
+</slider>
