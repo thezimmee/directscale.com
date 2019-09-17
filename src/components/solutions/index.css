@@ -1,0 +1,76 @@
+/*------------------------------------------------------------------------------
+* Solutions elements.
+*/
+
+.solution {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px dashed var(--ds-gray);
+  font-size: 16px;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  &__title {
+    color: var(--ds-dark-blue);
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-top: 1rem;
+  }
+
+  &__details {
+    margin-top: 0.25rem;
+  }
+
+  &__icon {
+    max-width: 3rem;
+
+    svg {
+      width: 100%;
+    }
+  }
+}
+
+@media (--from-tablet) {
+  .solutions {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 2rem;
+  }
+
+  .solution {
+    padding: 2rem;
+
+    &:nth-child(even) {
+      border-left: 1px dashed var(--ds-gray);
+    }
+
+    &:nth-last-child(2) {
+      border-bottom: 0;
+    }
+  }
+}
+
+@media (--from-laptop) {
+  .solutions {
+    display: grid;
+    grid-template-columns: 33.3333% 33.3333% 33.3333%;
+  }
+
+  .solution {
+    border-left: 1px dashed var(--ds-gray);
+
+    &:nth-child(3n + 1) {
+      border-left: 0;
+    }
+
+    &:nth-last-child(3) {
+      border-bottom: 0;
+    }
+  }
+}

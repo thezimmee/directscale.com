@@ -70,6 +70,10 @@
     align-items: center;
     text-align: center;
   }
+
+  .hero__content {
+    width: 100%;
+  }
 }
 
 .hero--gray {

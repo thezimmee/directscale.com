@@ -1,0 +1,12 @@
+<%
+  var heading = typeof heading === undefined ? '' : heading;
+_%>
+<div class="solutions">
+  <% solutions.forEach(item => { _%>
+    <div class="solution">
+      <div class="solution__icon"><icon data-name="<%= item.icon ? item.icon : item.title.toLowerCase() %>"></icon></div>
+      <h3 class="solution__title"><%= item.title %></h3>
+      <p class="solution__details"><%= item.details %></p>
+    </div>
+  <%_ }) %>
+</div>

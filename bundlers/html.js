@@ -498,8 +498,6 @@ function initComponents (config, bundle) {
       addFileToWatcher(config.components.map[tag], bundle)
     })
   }
-
-  console.log('COMPONENTS:', Object.keys(_.components))
 }
 
 /**

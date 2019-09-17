@@ -1,6 +1,7 @@
 module.exports = {
   site: require('./site'),
   testimonials: require('./testimonials'),
+  solutions: require('./solutions'),
   nav: require('./nav'),
   $: {
     svg (url) {
