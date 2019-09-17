@@ -26,6 +26,14 @@
   margin-top: 1rem;
 }
 
+.hero__subtitle {
+  margin-bottom: 0.5rem;
+  margin-top: -0.25rem;
+  color: var(--ds-gray);
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .hero__lede {
   font-size: 20px;
 }
@@ -64,6 +72,12 @@
 * Hero modifications.
 */
 
+.hero--fade-bg {
+  .hero__bg {
+    opacity: 0.2;
+  }
+}
+
 .hero--centered {
   .hero__inner {
     justify-content: center;
@@ -84,7 +98,8 @@
   background-color: var(--ds-blue);
   color: hsl(0, 0%, 100%);
 
-  .hero__title {
+  .hero__title,
+  .hero__subtitle {
     color: hsl(0, 0%, 100%);
   }
 }
@@ -93,7 +108,8 @@
   background-color: var(--ds-green);
   color: hsl(0, 0%, 100%);
 
-  .hero__title {
+  .hero__title,
+  .hero__subtitle {
     color: hsl(0, 0%, 100%);
   }
 }
