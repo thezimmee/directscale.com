@@ -115,8 +115,8 @@ module.exports = {
         {
           run: './bundlers/postcss.js',
           options: postcssConfig
-        }, {
-          run: './bundlers/css-stats.js'
+        // }, {
+        //   run: './bundlers/css-stats.js'
         }, {
           run: '@bundles/bundles-output',
           options: {

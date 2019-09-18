@@ -1,172 +1,148 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title><%= site.title %></title>
-    <meta name="description" content="<%= site.description %>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#57C1E9" />
-    <link rel="apple-touch-icon" href="icon.png" />
-    <!-- Styles. -->
-    <link rel="stylesheet" href="app.css" />
-  </head>
-  <body>
-    <!-- Content. -->
-    <div class="page">
-      <app-header></app-header>
-
-      <div class="page__scroller">
-        <hero-section
-          class="home__banner"
-          data-heading="Empower. Satisfy. Level up."
-          data-image="assets/images/banner--home.png"
-          data-bg-image="assets/images/bg.png"
-          data-theme="blue"
-        >
-          <div>
-            <p class="hero__lede">
-              Harness the potential of all your teams with one connected
-              platform that grows with you.
-            </p>
-            <p class="hero__cta">
-              <a class="button" href="#">Request a demo</a>
-              <a class="button button--outlined" href="#">Watch the video</a>
-            </p>
-          </div>
-        </hero-section>
-
-        <hero-section
-          data-heading="What they need. When they need it."
-          data-image="assets/images/what-they-need.png"
-          data-flip="true"
-          data-theme="gray"
-        >
-          <div>
-            <p>
-              DirectScale is the only MLM software product with advanced
-              configurability out of the box--no developers required. Less pain
-              for you + more tailored experiences for field users = more sales.
-            </p>
-            <ul>
-              <li>Custom-branded web office</li>
-              <li>Experience segmentation by user type</li>
-              <li>Virtual selling community tools</li>
-              <li>Distributor training and dashboards</li>
-            </ul>
-          </div>
-        </hero-section>
-
-        <hero-section
-          data-heading="All in one and one for all."
-          data-image="assets/images/all-in-one.png"
-        >
-          <div>
-            <p>
-              Our field and corporate systems are built with each other (and
-              you) in mind. You have all you need to manage your business from
-              end to end with better communication and more data access.
-            </p>
-            <ul>
-              <li>Rules-based commissions engine</li>
-              <li>Operations and logistics management</li>
-              <li>Open data structure with APIs</li>
-              <li>
-                <a href="#tools">Integrate your tax</a>,
-                <a href="#">shipping</a>, <a href="#">financial</a>, and
-                <a href="#">other tools</a>
-              </li>
-            </ul>
-          </div>
-        </hero-section>
-
-        <hero-section
-          data-heading="The solution that never sleeps."
-          data-image="assets/images/the-solution.png"
-          data-flip="true"
-          data-theme="gray"
-        >
-          <div>
-            <p>
-              DirectScale is architected as SaaS, which means better security,
-              more uptime, and constant upgrades as we innovate. And when you
-              grow, it scales with you in real time.
-            </p>
-            <ul>
-              <li>100% cloud hosted</li>
-              <li>Modern and simple user interface</li>
-              <li>Built for mobile</li>
-            </ul>
-          </div>
-        </hero-section>
-
-        <hero-section
-          data-heading="Better together."
-          data-image="assets/images/better-together.png"
-        >
-          <div>
-            <p>
-              By bringing together industry experts from direct selling and
-              technology, DirectScale understands what you need. We've built our
-              organization to serve clients and help you learn how to grow your
-              business.
-            </p>
-            <ul>
-              <li>Access to our dedicated support team</li>
-              <li>Consultative, data-driven insight provisions</li>
-              <li>Decades of industry experience</li>
-            </ul>
-          </div>
-        </hero-section>
-
-        <hero-section
-          class="home__testimonials"
-          data-heading="Clients who grow with us!"
-          data-theme="green"
-          data-bg-image="assets/svg/icon-pattern.svg"
-          data-fade-bg="true"
-        >
-          <div>
-            <testimonials data-autoplay="6000"></testimonials>
-          </div>
-        </hero-section>
-
-        <hero-section
-          data-heading="Simple solutions for the whole team"
-          data-center="true"
-        >
-          <solutions></solutions>
-        </hero-section>
-
-        <hero-section
-          data-heading="DirectScale + Partners"
-          data-subheading="Together, we're so much more. Learn more about our partners."
-          data-theme="blue"
-          data-bg-image="assets/svg/icon-pattern.svg"
-          data-fade-bg="true"
-        >
-          <!-- @todo: Create partners component. -->
-          <partners></partners>
-        </hero-section>
-
-        <hero-section
-          class="home__demo"
-          data-heading="Don't just take our word for it."
-          data-subheading="Test drive our platform and see for yourself."
-          data-bg-image="assets/images/cityscape.png"
-        >
-          <a class="home__demo-button button button--primary" href="#"
-            >Request a demo</a
-          >
-        </hero-section>
-
-        <app-footer></app-footer>
+<page>
+  <div slot="content">
+    <hero-section
+      class="home__banner"
+      data-heading="Empower. Satisfy. Level up."
+      data-image="assets/images/banner--home.png"
+      data-bg-image="assets/images/bg.png"
+      data-theme="blue"
+    >
+      <div>
+        <p class="hero__lede">
+          Harness the potential of all your teams with one connected platform
+          that grows with you.
+        </p>
+        <p class="hero__cta">
+          <a class="button" href="#">Request a demo</a>
+          <a class="button button--outlined" href="#">Watch the video</a>
+        </p>
       </div>
+    </hero-section>
 
-      <div class="page__overlay"></div>
-    </div>
+    <hero-section
+      data-heading="What they need. When they need it."
+      data-image="assets/images/what-they-need.png"
+      data-flip="true"
+      data-theme="gray"
+    >
+      <div>
+        <p>
+          DirectScale is the only MLM software product with advanced
+          configurability out of the box--no developers required. Less pain for
+          you + more tailored experiences for field users = more sales.
+        </p>
+        <ul>
+          <li>Custom-branded web office</li>
+          <li>Experience segmentation by user type</li>
+          <li>Virtual selling community tools</li>
+          <li>Distributor training and dashboards</li>
+        </ul>
+      </div>
+    </hero-section>
 
-    <!-- Scripts. -->
-    <script src="app.js"></script>
-    <script src="index.js"></script>
-  </body>
-</html>
+    <hero-section
+      data-heading="All in one and one for all."
+      data-image="assets/images/all-in-one.png"
+    >
+      <div>
+        <p>
+          Our field and corporate systems are built with each other (and you) in
+          mind. You have all you need to manage your business from end to end
+          with better communication and more data access.
+        </p>
+        <ul>
+          <li>Rules-based commissions engine</li>
+          <li>Operations and logistics management</li>
+          <li>Open data structure with APIs</li>
+          <li>
+            <a href="#tools">Integrate your tax</a>, <a href="#">shipping</a>,
+            <a href="#">financial</a>, and
+            <a href="#">other tools</a>
+          </li>
+        </ul>
+      </div>
+    </hero-section>
+
+    <hero-section
+      data-heading="The solution that never sleeps."
+      data-image="assets/images/the-solution.png"
+      data-flip="true"
+      data-theme="gray"
+    >
+      <div>
+        <p>
+          DirectScale is architected as SaaS, which means better security, more
+          uptime, and constant upgrades as we innovate. And when you grow, it
+          scales with you in real time.
+        </p>
+        <ul>
+          <li>100% cloud hosted</li>
+          <li>Modern and simple user interface</li>
+          <li>Built for mobile</li>
+        </ul>
+      </div>
+    </hero-section>
+
+    <hero-section
+      data-heading="Better together."
+      data-image="assets/images/better-together.png"
+    >
+      <div>
+        <p>
+          By bringing together industry experts from direct selling and
+          technology, DirectScale understands what you need. We've built our
+          organization to serve clients and help you learn how to grow your
+          business.
+        </p>
+        <ul>
+          <li>Access to our dedicated support team</li>
+          <li>Consultative, data-driven insight provisions</li>
+          <li>Decades of industry experience</li>
+        </ul>
+      </div>
+    </hero-section>
+
+    <hero-section
+      class="home__testimonials"
+      data-heading="Clients who grow with us!"
+      data-theme="green"
+      data-bg-image="assets/svg/icon-pattern.svg"
+      data-fade-bg="true"
+    >
+      <div>
+        <testimonials data-autoplay="6000"></testimonials>
+      </div>
+    </hero-section>
+
+    <hero-section
+      data-heading="Simple solutions for the whole team"
+      data-center="true"
+    >
+      <solutions></solutions>
+    </hero-section>
+
+    <hero-section
+      data-heading="DirectScale + Partners"
+      data-subheading="Together, we're so much more. Learn more about our partners."
+      data-theme="blue"
+      data-bg-image="assets/svg/icon-pattern.svg"
+      data-fade-bg="true"
+    >
+      <!-- @todo: Create partners component. -->
+      <partners></partners>
+    </hero-section>
+
+    <hero-section
+      class="home__demo"
+      data-heading="Don't just take our word for it."
+      data-subheading="Test drive our platform and see for yourself."
+      data-bg-image="assets/images/cityscape.png"
+    >
+      <a class="home__demo-button button button--primary" href="#"
+        >Request a demo</a
+      >
+    </hero-section>
+  </div>
+
+  <script slot="scripts" src="index.js"></script>
+</page>

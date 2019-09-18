@@ -604,6 +604,12 @@ function processComponent ($, config, bundle) {
     })
     defaultSlot.first().replaceWith(defaultSlot.first().html())
 
+    // Unwrap each remaining <slot />.
+    $el.find('slot').each((i, slot) => {
+      const $slot = $(slot)
+      $slot.replaceWith($slot.html())
+    })
+
     // Unwrap it.
     if (config.components.unwrap) {
       // Copy attributes down to first child.

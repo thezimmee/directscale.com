@@ -15,10 +15,32 @@
     transition: transform 0.3s cubic-bezier(0.6, 0.6, 0.4, 1.1),
       box-shadow 0.3s cubic-bezier(0.6, 0.6, 0.4, 1.1);
     z-index: 10;
-  }
 
-  .off-canvas--is-open .off-canvas {
-    box-shadow: -4px 0 12px 0 rgba(0, 0, 0, 0.15);
-    transform: translateX(20px);
+    .off-canvas--is-open & {
+      box-shadow: -4px 0 12px 0 rgba(0, 0, 0, 0.15);
+      transform: translateX(20px);
+    }
+
+    &__overlay {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      visibility: hidden;
+      z-index: -1;
+      background-color: hsla(0, 0%, 0%, 0.4);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out, z-index 0s 0.3s ease-in-out,
+        visibility 0s 0.3s ease-in-out;
+
+      .off-canvas--is-open & {
+        visibility: visible;
+        z-index: 9;
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out, z-index 0s 0s ease-in-out,
+          visibility 0s 0s ease-in-out;
+      }
+    }
   }
 }
