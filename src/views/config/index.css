@@ -11,6 +11,7 @@
   --dark: hsl(209, 24%, 30%);
   --light: hsl(0, 0%, 90%);
   --gray: hsla(209, 23%, 30%, 0.54);
+  --light-gray: hsl(204, 33%, 95%);
 }
 
 @custom-media --tablet (min-width: 600px);

@@ -1,0 +1,51 @@
+<hero-section
+  class="pricing"
+  data-centered="true"
+  data-heading="Business solutions for Everyone"
+>
+  <p>From our commissions engine to our social sharing tools, DirectScale supports corporate and field users in businesses of any size. And because it’s architected as SaaS, our tiered plans will move you forward from day one, whether you’re just opening your doors or already dominating your industry.</p>
+
+  <% if (pricing && pricing instanceof Array) { _%>
+  <div class="pricing__list">
+    <% pricing.forEach((option, i) => { _%>
+    <div class="pricing__option">
+      <div class="pricing__header">
+        <h3 class="pricing__title"><%= option.title %></h3>
+        <p class="pricing__subtitle"><%= option.subtitle %></p>
+      </div>
+
+      <div class="pricing__pricing">
+        <div class="pricing__licensing">
+          <div class="pricing__price-label">Monthly <br>Licensing Fee:</div>
+          <div class="pricing__price"><%= option.price %></div>
+        </div>
+        <div class="pricing__disclaimer">Plus monthly % of revenue</div>
+      </div>
+
+      <div class="pricing__features-header">
+        <% if (i === 0) { %>
+        <strong><%= option.title %></strong> features include:
+        <% } else { _%>
+          Includes <strong><%= pricing[i - 1].title %></strong> features + <strong><%= option.title %></strong>:
+        <% } %>
+      </div>
+
+      <% if (option.features && option.features instanceof Array) { %><div class="pricing__features-list">
+        <% option.features.forEach(feature => { %>
+          <h4 class="pricing__feature-name"><%= feature.name %></h4>
+          <% if (feature.highlights && feature.highlights instanceof Array) { _%>
+          <ul class="pricing__feature-highlights">
+            <% feature.highlights.forEach(text => { _%>
+            <li><%= text %></li>
+            <%_ }) %>
+          </ul>
+          <%_ } %>
+        <% }) %>
+      </div><% } %>
+    </div>
+    <%_ }) %>
+  </div>
+  <%_ } %>
+
+  <p class="pricing__cta">To See our full feature-by-feature list, contact us today! <a class="button button--primary" href="#">Request a demo</a></p>
+</hero-section>

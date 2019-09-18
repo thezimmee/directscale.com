@@ -11,11 +11,11 @@
 .hero__inner {
   display: flex;
   flex-direction: column-reverse;
-  max-width: calc(1200px + 2rem);
+  max-width: calc(1200px + 6rem);
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
   position: relative;
   z-index: 1;
 }
@@ -23,7 +23,7 @@
 .hero__title {
   color: var(--ds-dark-blue);
   margin-bottom: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .hero__subtitle {
@@ -91,7 +91,7 @@
 }
 
 .hero--gray {
-  background-color: hsl(204, 33%, 97%);
+  background-color: var(--light-gray);
 }
 
 .hero--blue {
@@ -120,8 +120,8 @@
 
 @media (--tablet) {
   .hero__inner {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 

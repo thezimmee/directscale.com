@@ -42,7 +42,7 @@ module.exports = {
       mediaQueries: false
     }),
     require('@fullhuman/postcss-purgecss')({
-      content: ['build/index.html', 'build/app.js', 'build/index.js'],
+      content: ['build/**/index.html', 'build/app.js', 'build/index.js'],
       whitelist: [],
       whitelistPatterns: [/(.*)--is(.*)/g]
     }),

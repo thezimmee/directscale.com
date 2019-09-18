@@ -1,0 +1,129 @@
+.pricing {
+  strong {
+    font-weight: 600;
+  }
+
+  &__list {
+    margin-top: 2rem;
+    text-align: left;
+  }
+
+  &__option {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1;
+    border: 1px solid var(--ds-gray);
+
+    & + & {
+      margin-top: 1rem;
+    }
+  }
+
+  &__header,
+  &__pricing,
+  &__features-header,
+  &__features-list {
+    padding: 1rem;
+  }
+
+  &__header {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    background-color: var(--ds-green);
+    color: hsl(0, 0%, 100%);
+  }
+  &__option:nth-child(3n + 1) &__header {
+    background-color: var(--ds-green);
+  }
+  &__option:nth-child(3n + 2) &__header {
+    background-color: var(--ds-orange);
+  }
+  &__option:nth-child(3n + 3) &__header {
+    background-color: var(--ds-dark-blue);
+  }
+  &__title,
+  &__subtitle {
+    margin: 0;
+  }
+
+  &__licensing {
+    display: flex;
+    min-height: 60px;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 14px;
+    border-bottom: 1px dashed var(--ds-gray);
+  }
+  &__price-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 40%;
+    text-transform: uppercase;
+  }
+  &__price {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+    padding-bottom: 0.125rem;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: right;
+
+    ^&__option:first-child & {
+      padding-bottom: 0.25rem;
+      font-size: 40px;
+    }
+  }
+
+  &__disclaimer {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  &__features-header {
+    padding-right: 0.5rem;
+    background-color: var(--light-gray);
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  &__features-list {
+    font-size: 16px;
+  }
+  &__feature-name {
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    color: var(--ds-dark-blue);
+    font-size: 18px;
+    font-weight: 600;
+  }
+  &__feature-highlights {
+    margin-top: 0;
+  }
+
+  .pricing__cta {
+    margin-top: 2rem;
+
+    .button {
+      margin-left: 1rem;
+    }
+  }
+
+  @media (--from-desktop) {
+    &__list {
+      display: flex;
+    }
+
+    &__option {
+      & + & {
+        margin-left: 1rem;
+        margin-top: 0;
+      }
+    }
+  }
+}
