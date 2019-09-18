@@ -72,7 +72,7 @@ const svgo = new SVGO({
   }, {
     removeDimensions: true
   }, {
-    removeAttrs: { attrs: '(stroke|fill|version|xmlns)' }
+    removeAttrs: { attrs: '(stroke|fill|version|xmlns|id)' }
   }]
 })
 

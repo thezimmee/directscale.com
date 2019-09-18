@@ -9,6 +9,7 @@ node_modules
 # Test results
 /.nyc_output
 /coverage
+/.css-stats
 
 # Build files
 /dist

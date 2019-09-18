@@ -1,0 +1,33 @@
+<div class="footer">
+  <div class="footer__inner">
+    <a class="footer__logo" href="#" title="DirectScale"><icon data-name="logo"></icon></a>
+    
+    <div class="footer__sections">
+      <div class="footer__section footer__section--contact">
+        <div class="footer__title">
+          <h3>Contact</h3>
+          <div class="footer__socials">
+            <a href="//facebook.com"><icon data-name="facebook"></icon></a>
+            <a href="//twitter.com"><icon data-name="twitter"></icon></a>
+            <a href="//linkedin.com"><icon data-name="linkedin"></icon></a>
+          </div>
+        </div>
+        <p>
+          <%- site.addressFormatted %><br>
+          <%= site.phoneFormatted %>
+        </p>
+      </div>
+    
+      <% sitemap.forEach(section => { _%>
+        <div class="footer__section">
+          <h3 class="footer__title"><%= section.title %></h3>
+          <% if (section.links && section.links.length) { %><ul class="footer__links">
+            <% section.links.forEach(link => { %><li class="footer__link"><a href="<%= link.url %>"><%= link.label %></a></li><% }) %>
+          </ul><% } %>
+        </div>
+      <%_ }) %>
+    </div>
+    
+    <div class="footer__notice"><%- site.cookiesNotice %></div>
+  </div>
+</div>

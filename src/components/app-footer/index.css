@@ -1,0 +1,139 @@
+.footer {
+  background-color: var(--ds-dark-blue);
+  color: hsl(0, 0%, 100%);
+  fill: hsl(0, 0%, 100%);
+  font-size: 16px;
+
+  a {
+    display: inline-flex;
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: hsla(0, 0%, 100%, 0.7);
+      text-decoration: underline;
+    }
+  }
+
+  &__inner {
+    max-width: calc(1200px + 2rem);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 1rem;
+  }
+
+  &__logo {
+    display: block;
+    width: 180px;
+    height: 40px;
+
+    svg {
+      width: 100%;
+    }
+
+    path {
+      fill: inherit;
+    }
+  }
+
+  &__sections {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__section {
+    margin-top: 1.5rem;
+    width: 50%;
+
+    &--contact {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    height: 1.5rem;
+    margin: 0;
+    border-bottom: 1px solid hsl(0, 0%, 100%);
+    font-weight: 600;
+    font-size: inherit;
+    text-transform: lowercase;
+
+    h3 {
+      flex-grow: 1;
+      margin: 0;
+      font-weight: 600;
+      font-size: inherit;
+    }
+  }
+
+  &__socials {
+    display: flex;
+
+    a {
+      transition: fill 0.2s ease-in-out;
+
+      &:hover,
+      &:focus {
+        fill: hsla(0, 0%, 100%, 0.7);
+      }
+    }
+
+    a + a {
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__links {
+    margin-top: 1rem;
+    padding: 0 1rem 0 0;
+    list-style-type: none;
+  }
+
+  &__notice {
+    margin-top: 1.5rem;
+    border-top: 1px solid hsl(0, 0%, 100%);
+    padding-top: 1rem;
+
+    a {
+      font-weight: 600;
+    }
+  }
+
+  @media (--from-tablet) {
+    &__inner {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (--from-laptop) {
+    &__sections {
+      flex-wrap: nowrap;
+    }
+    &__section {
+      width: auto;
+      flex: 1;
+
+      &--contact {
+        flex: 2;
+      }
+    }
+    &__contact {
+      flex: 100%;
+    }
+
+    &__title {
+      h3 {
+        flex-grow: initial;
+      }
+    }
+
+    &__socials {
+      margin-left: 1rem;
+    }
+  }
+}

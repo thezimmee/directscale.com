@@ -1,11 +1,13 @@
 :root {
   /*--ds-blue: hsl(196, 77%, 63%);*/
-  --ds-blue: hsl(196, 100%, 75%);
+  /*--ds-blue: hsl(196, 100%, 75%);*/
+  --ds-blue: hsl(197, 76%, 57%);
   --ds-dark-blue: hsl(203, 100%, 37%);
   --ds-dark-blue--hue: 203;
   --ds-orange: hsl(36, 96%, 54%);
   --ds-green: hsl(69, 68%, 52%);
   --ds-gray: hsl(203, 10%, 59%);
+  --ds-dark: hsl(205, 13%, 32%);
   --dark: hsl(209, 24%, 30%);
   --light: hsl(0, 0%, 90%);
   --gray: hsla(209, 23%, 30%, 0.54);

@@ -112,6 +112,10 @@
   .hero__subtitle {
     color: hsl(0, 0%, 100%);
   }
+
+  ::selection {
+    background-color: var(--ds-orange);
+  }
 }
 
 @media (--tablet) {

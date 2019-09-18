@@ -11,6 +11,7 @@
 */
 @import "page";
 @import "button";
+@import "icon";
 @import "hamburger";
 @import "off-canvas";
 @import "app-nav";
@@ -23,6 +24,7 @@
 * Views (pages) (src/views/<name>).
 */
 @import "app-header";
+@import "app-footer";
 @import "home";
 
 /*

@@ -2,6 +2,7 @@ module.exports = {
   site: require('./site'),
   testimonials: require('./testimonials'),
   solutions: require('./solutions'),
+  sitemap: require('./sitemap'),
   nav: require('./nav'),
   $: {
     svg (url) {
