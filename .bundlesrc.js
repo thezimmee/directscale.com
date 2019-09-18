@@ -80,7 +80,7 @@ module.exports = {
   bundles: [
     {
       id: 'pages',
-      input: ['src/index.html'],
+      input: ['src/pages/**/*.html'],
       bundlers: [
         {
           run: '@bundles/bundles-ejs',
@@ -103,7 +103,7 @@ module.exports = {
           run: '@bundles/bundles-output',
           options: {
             to: 'build',
-            root: 'src',
+            root: 'src/pages',
             incremental: false
           }
         }
