@@ -74,6 +74,7 @@
       color: var(--dark);
     }
 
+    /* purgecss start ignore */
     &.toggle {
       &:after {
         content: " ";
@@ -104,5 +105,6 @@
         transform: scaleX(1);
       }
     }
+    /* purgecss end ignore */
   }
 }

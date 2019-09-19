@@ -42,9 +42,10 @@ module.exports = {
       mediaQueries: false
     }),
     require('@fullhuman/postcss-purgecss')({
-      content: ['build/**/index.html', 'build/app.js', 'build/**/index.js'],
+      content: ['build/**/*.html', 'build/app.js', 'build/product/index.js'],
       whitelist: [],
-      whitelistPatterns: [/(.*)--is(.*)/g]
+      whitelistPatterns: [],
+      whitelistPatternsChildren: []
     }),
     require('autoprefixer')(),
     isProd ? require('cssnano')({ preset: 'default' }) : require('postcss-reporter')()

@@ -1,3 +1,6 @@
+<%
+  var rootPath = rootPath === undefined ? '' : rootPath
+_%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,7 +11,7 @@
     <meta name="theme-color" content="#57C1E9" />
     <link rel="apple-touch-icon" href="icon.png" />
     <!-- Styles. -->
-    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="<%= rootPath %>app.css" />
   </head>
   <body>
     <!-- Content. -->
@@ -23,7 +26,7 @@
     </div>
 
     <!-- Scripts. -->
-    <script src="/app.js"></script>
+    <script src="<%= rootPath %>app.js"></script>
     <slot name="scripts"></slot>
   </body>
 </html>

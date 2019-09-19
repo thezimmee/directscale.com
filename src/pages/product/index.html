@@ -1,9 +1,10 @@
-<page>
+<% var rootPath = '../' _%>
+<page data-root-path="<%= rootPath %>">
   <div slot="content">
     <hero-section
       data-heading="Cover all your bases."
-      data-image="/assets/images/tablet.png"
-      data-bg-image="/assets/images/bg.png"
+      data-image="../assets/images/tablet.png"
+      data-bg-image="../assets/images/bg.png"
       data-theme="blue"
       data-center="true"
     >
@@ -33,7 +34,7 @@
       <div class="product__better">
         <hero-icon
           data-heading="Dashboards"
-          data-image="/assets/images/dashboard.png"
+          data-image="../assets/images/dashboard.png"
         >
           <p>
             Executive dashboards bring together the highlights of your business
@@ -43,7 +44,7 @@
 
         <hero-icon
           data-heading="AutoShip"
-          data-image="/assets/images/autoship.png"
+          data-image="../assets/images/autoship.png"
         >
           <p>
             Predict cash flows and prepare for periods of high volume by
@@ -53,7 +54,7 @@
 
         <hero-icon
           data-heading="Commissions"
-          data-image="/assets/images/commissions.png"
+          data-image="../assets/images/commissions.png"
         >
           <p>
             Optimize your commissions process with prototyping, testing, and
@@ -105,7 +106,7 @@
       </div>
     </hero-section>
 
-    <demo></demo>
+    <demo data-root-path="<%= rootPath %>"></demo>
   </div>
 
   <script src="index.js" slot="scripts"></script>

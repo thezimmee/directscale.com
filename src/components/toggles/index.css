@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 .toggle {
   cursor: pointer;
 
@@ -18,3 +19,4 @@
     display: flex;
   }
 }
+/* purgecss end ignore */

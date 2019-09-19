@@ -1,8 +1,9 @@
-<page>
+<% var rootPath = rootPath === undefined ? '' : rootPath _%>
+<page data-root-path="../">
   <div slot="content">
     <hero-section
       data-heading="Grow where you're planted."
-      data-bg-image="/assets/images/bg.png"
+      data-bg-image="<%= rootPath %>assets/images/bg.png"
       data-theme="blue"
       data-center="true"
     ></hero-section>

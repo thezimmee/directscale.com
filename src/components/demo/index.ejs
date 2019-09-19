@@ -1,8 +1,11 @@
+<%
+  var rootPath = rootPath === undefined ? '' : rootPath
+_%>
 <hero-section
   class="demo"
   data-heading="Don't just take our word for it."
   data-subheading="Test drive our platform and see for yourself."
-  data-bg-image="/assets/images/cityscape.png"
+  data-bg-image="<%= rootPath %>assets/images/cityscape.png"
   data-center="true"
 >
   <a class="button button--primary" href="#"
