@@ -512,9 +512,10 @@ function readComponentsInDirectory (dir, bundle, parent) {
       : fs.pathExistsSync(path.join(dirPath, `${slug}.ejs`))
         ? path.join(dirPath, `${slug}.ejs`)
         : null
-    if (!srcPath) return
-    _.components[(parent ? parent + '-' : '') + slug] = fs.readFileSync(srcPath, 'utf8')
-    addFileToWatcher(srcPath, bundle)
+    if (srcPath) {
+      _.components[(parent ? parent + '-' : '') + slug] = fs.readFileSync(srcPath, 'utf8')
+      addFileToWatcher(srcPath, bundle)
+    }
     readComponentsInDirectory(dirPath, bundle, slug)
   })
 }

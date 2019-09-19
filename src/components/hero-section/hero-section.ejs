@@ -8,12 +8,12 @@
   var fadeBg = typeof fadeBg === undefined ? false : fadeBg;
   var theme = typeof theme === undefined ? '' : theme;
 _%>
-<div class="hero<%= flip ? ' hero--flip' : '' %><%= theme ? ` hero--${theme}` : '' %><%= (center || !image) ? ' hero--centered' : '' %><%= fadeBg ? ' hero--fade-bg' : '' %>">
+<div class="hero<%= flip ? ' hero--flip' : '' %><%= theme ? ` hero--${theme}` : '' %><%= center ? ' hero--centered' : '' %><%= fadeBg ? ' hero--fade-bg' : '' %><%= image ? ' hero--has-image' : '' %>">
   <div class="hero__inner">
 
     <div class="hero__content">
-      <h3 class="hero__title"><%= heading %></h3>
-      <h4 class="hero__subtitle"><%= subheading %></h4>
+      <% if (heading) { %><h3 class="hero__title"><%= heading %></h3><% } %>
+      <% if (subheading) { %><h4 class="hero__subtitle"><%= subheading %></h4><% } %>
       <slot></slot>
     </div>
 

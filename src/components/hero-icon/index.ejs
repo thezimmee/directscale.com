@@ -1,0 +1,21 @@
+<%
+  var heading = typeof heading === undefined ? '' : heading;
+  var image = typeof image === undefined ? '' : image;
+  var mod = typeof mod === undefined ? '' : mod;
+_%>
+<div class="hero-icon<%= mod ? ' hero-icon--' + mod : '' %>">
+  <% if (mod === 'vertical') { %><div class="hero-icon__column"><% } _%>
+    <% if (image) { _%>
+      <% if (image.indexOf('.svg') > -1 || image.indexOf('.') === -1) { _%>
+      <icon class="hero-icon__icon" data-name="<%= $.svg(image) %>"></icon>
+      <%_ } else { %>
+      <img class="hero-icon__image" src="<%= image %>" alt="<%= heading || '' %>">
+      <%_ } %>
+    <%_ } %>
+  <%_ if (mod === 'vertical') { %></div><% } %>
+
+  <% if (mod === 'vertical') { %><div class="hero-icon__column"><% } _%>
+    <% if (heading) { %><h3 class="hero-icon__title"><%= heading %></h3><% } _%>
+    <slot></slot>
+  <%_ if (mod === 'vertical') { %></div><% } %>
+</div>

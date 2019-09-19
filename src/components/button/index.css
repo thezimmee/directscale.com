@@ -17,41 +17,92 @@
     background-color: var(--ds-gray);
     border-color: var(--ds-gray);
     color: hsl(0, 0%, 100%);
-  }
-
-  + .button {
-    margin-left: 1rem;
-  }
-}
-
-.button--icon {
-  display: inline-flex;
-  align-items: center;
-  padding-right: 0.5rem;
-  padding-left: 0.25rem;
-  background-color: transparent;
-  color: var(--dark);
-  fill: var(--gray);
-
-  svg {
-    height: 20px;
-    margin-right: 0.25em;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: hsla(0, 0%, 0%, 0.08);
-    color: var(--dark);
     cursor: pointer;
   }
-}
 
-.button--primary {
-  background-color: var(--ds-orange);
-}
+  & + & {
+    margin-left: 1rem;
+  }
 
-.button--outlined {
-  background-color: transparent;
-  border: 2px solid var(--ds-gray);
-  color: var(--ds-gray);
+  &--icon {
+    display: inline-flex;
+    align-items: center;
+    padding-right: 0.5rem;
+    padding-left: 0.25rem;
+    background-color: transparent;
+    color: var(--dark);
+    fill: var(--gray);
+
+    svg {
+      height: 20px;
+      margin-right: 0.25em;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: hsla(0, 0%, 0%, 0.08);
+      color: var(--dark);
+    }
+  }
+
+  &--primary {
+    background-color: var(--ds-orange);
+  }
+
+  &--outlined {
+    background-color: transparent;
+    border: 2px solid var(--ds-gray);
+    color: var(--ds-gray);
+  }
+
+  &--tab {
+    position: relative;
+    background-color: transparent;
+    border: 0;
+    color: var(--ds-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+    & + & {
+      margin-left: 0.5rem;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: hsla(0, 0%, 0%, 0.08);
+      color: var(--dark);
+    }
+
+    &.toggle {
+      &:after {
+        content: " ";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: scaleX(0);
+        border-bottom: 2px solid var(--ds-blue);
+        transform-origin: center;
+        transition-property: transform, left, right;
+        transition-duration: 0.2s;
+      }
+
+      &:hover:after,
+      &:focus:after {
+        transform: scaleX(1);
+      }
+    }
+
+    &.toggle--is-active {
+      background-color: transparent;
+      color: var(--ds-dark);
+
+      &:after {
+        left: 1rem;
+        right: 1rem;
+        transform: scaleX(1);
+      }
+    }
+  }
 }

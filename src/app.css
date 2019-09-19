@@ -13,20 +13,25 @@
 @import "button";
 @import "icon";
 @import "hamburger";
+@import "toggles";
 @import "off-canvas";
 @import "app-nav";
 @import "hero-section";
+@import "hero-icon";
 @import "slider";
 @import "testimonials";
 @import "pricing-chart";
+@import "product";
 @import "solutions";
+@import "demo";
 
 /*
 * Views (pages) (src/views/<name>).
 */
 @import "app-header";
 @import "app-footer";
-@import "home";
+@import "pages/index.css";
+@import "pages/product";
 
 /*
 * Utility classes (src/components/<name>).

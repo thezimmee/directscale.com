@@ -4,7 +4,7 @@ const isProd = ['production', 'test', 'ci'].includes(process.env.NODE_ENV)
 module.exports = {
   // This configures the postcss bundler to handle postcss-import.
   import: {
-    path: ['src/components', 'src/views']
+    path: ['src/components', 'src/pages', 'src/views']
   },
   plugins: [
     // postcss-import is handled automatically by the postcss bundler.
@@ -42,7 +42,7 @@ module.exports = {
       mediaQueries: false
     }),
     require('@fullhuman/postcss-purgecss')({
-      content: ['build/**/index.html', 'build/app.js', 'build/index.js'],
+      content: ['build/**/index.html', 'build/app.js', 'build/**/index.js'],
       whitelist: [],
       whitelistPatterns: [/(.*)--is(.*)/g]
     }),

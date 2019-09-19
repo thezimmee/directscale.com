@@ -1,0 +1,20 @@
+.toggle {
+  cursor: pointer;
+
+  &--is-active {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &__content {
+    display: none;
+  }
+
+  &__content--is-active {
+    display: block;
+  }
+
+  &__content--is-active[data-toggle-flex] {
+    display: flex;
+  }
+}

@@ -79,7 +79,10 @@
 }
 
 .hero--centered {
+  overflow: hidden;
+
   .hero__inner {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -87,6 +90,11 @@
 
   .hero__content {
     width: 100%;
+  }
+
+  .hero__image {
+    margin-bottom: -5rem;
+    margin-top: 1.5rem;
   }
 }
 
@@ -140,10 +148,6 @@
     }
   }
 
-  .hero__content,
-  .hero__image {
-    width: 50%;
-  }
   .hero__image {
     padding-left: 2rem;
 
@@ -164,6 +168,13 @@
         margin-top: 0;
         margin-left: 0.5rem;
       }
+    }
+  }
+
+  .hero--has-image {
+    .hero__content,
+    .hero__image {
+      width: 50%;
     }
   }
 }

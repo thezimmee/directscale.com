@@ -20,9 +20,15 @@ export default configGen.create([
     }
   }, {
     type: 'iife',
-    input: 'src/views/home/index.js',
+    input: 'src/pages/index.js',
     output: {
       file: 'build/index.js'
+    }
+  }, {
+    type: 'iife',
+    input: 'src/pages/product/index.js',
+    output: {
+      file: 'build/product/index.js'
     }
   }
 ])

@@ -1,5 +1,112 @@
 <page>
   <div slot="content">
-    <h2>Product!</h2>
+    <hero-section
+      data-heading="Cover all your bases."
+      data-image="/assets/images/tablet.png"
+      data-bg-image="/assets/images/bg.png"
+      data-theme="blue"
+      data-center="true"
+    >
+      <p>
+        DirectScale is the only MLM software with complete, configurable
+        solutions for corporate and field users out of the box.
+      </p>
+    </hero-section>
+
+    <product-walk-run></product-walk-run>
+
+    <product-your-needs></product-your-needs>
+
+    <hero-section
+      data-heading="Better than a fortune teller."
+      data-center="true"
+    >
+      <p>
+        We know direct selling businesses don’t run like any other. Using our
+        decades of industry experience, we designed unique revenue optimization
+        tools on top of our commissions engine. By aggregating all of your sales
+        data alongside our compensation profiler and editor, DirectScale gives
+        you not only the insight, but the ability to drive the growth of your
+        business.
+      </p>
+
+      <div class="product__better">
+        <hero-icon
+          data-heading="Dashboards"
+          data-image="/assets/images/dashboard.png"
+        >
+          <p>
+            Executive dashboards bring together the highlights of your business
+            in one place, instantly.
+          </p>
+        </hero-icon>
+
+        <hero-icon
+          data-heading="AutoShip"
+          data-image="/assets/images/autoship.png"
+        >
+          <p>
+            Predict cash flows and prepare for periods of high volume by
+            forecasting autoships.
+          </p>
+        </hero-icon>
+
+        <hero-icon
+          data-heading="Commissions"
+          data-image="/assets/images/commissions.png"
+        >
+          <p>
+            Optimize your commissions process with prototyping, testing, and
+            editing tools built in.
+          </p>
+        </hero-icon>
+      </div>
+    </hero-section>
+
+    <hero-section data-theme="blue" class="product__power">
+      <div class="product__power-productivity">
+        <h2 class="hero__title">With great power comes great productivity.</h2>
+        <p>
+          You’re only as good as your people, and they’re only as capable as
+          their tools enable them to be. DirectScale’s Corporate Office is the
+          single source of truth for an organization. From supporting field
+          users with data, to managing eCommerce and putting the logic back in
+          logistics, we believe technology should be working for you, not the
+          other way around.
+        </p>
+      </div>
+      <div class="product__power-features">
+        <hero-icon
+          data-heading="eCommerce management"
+          data-image="ecommerce-management"
+          data-mod="vertical"
+        >
+          <p>
+            Update product offerings and info on the go to manage your online
+            business with ease.
+          </p>
+        </hero-icon>
+        <hero-icon data-heading="CRM" data-image="crm" data-mod="vertical">
+          <p>
+            Get a 360° view of your field users’ businesses and see how to
+            better support them to make more sales.
+          </p>
+        </hero-icon>
+        <hero-icon
+          data-heading="Inventory/order management"
+          data-image="inventory"
+          data-mod="vertical"
+        >
+          <p>
+            Streamline all your critical operations from ordering products to
+            shipping them out.
+          </p>
+        </hero-icon>
+      </div>
+    </hero-section>
+
+    <demo></demo>
   </div>
+
+  <script src="index.js" slot="scripts"></script>
 </page>
