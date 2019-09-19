@@ -35,6 +35,10 @@
       }
     }
 
+    &__toggles {
+      justify-content: flex-start;
+    }
+
     &__media,
     &__content {
       flex: 1;

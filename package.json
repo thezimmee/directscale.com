@@ -58,7 +58,7 @@
     "watch": "bundle --config=.bundlesrc.js --watch & rollup --config=.rolluprc.js --watch",
     "serve": "browser-sync start --config=.browsersyncrc.js",
     "predeploy": "NODE_ENV=production npm run build && echo \"Publishing to github pages...\"",
-    "deploy": "gh-pages -d ./build --repo https://thezimmee@github.com/thezimmee/directscale.com.git"
+    "deploy": "gh-pages -d ./build --repo git@github.com:thezimmee/directscale.com.git"
   },
   "main": "build/app.js",
   "keywords": [],
