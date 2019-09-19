@@ -57,7 +57,7 @@
     "prewatch": "rimraf build",
     "watch": "bundle --config=.bundlesrc.js --watch & rollup --config=.rolluprc.js --watch",
     "serve": "browser-sync start --config=.browsersyncrc.js",
-    "predeploy": "echo \"Publishing to github pages...\"",
+    "predeploy": "NODE_ENV=production npm run build && echo \"Publishing to github pages...\"",
     "deploy": "gh-pages -d ./build --repo https://thezimmee@github.com/thezimmee/directscale.com.git"
   },
   "main": "build/app.js",
