@@ -1,18 +1,17 @@
 @font-face {
   font-family: "Montserrat";
-  src: url("../../assets/fonts/montserrat/montserrat-black-webfont.woff2")
+  src: url("assets/fonts/montserrat/montserrat-black-webfont.woff2")
       format("woff2"),
-    url("../../assets/fonts/montserrat/montserrat-black-webfont.woff")
-      format("woff");
+    url("assets/fonts/montserrat/montserrat-black-webfont.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Montserrat";
-  src: url("../../assets/fonts/montserrat/montserrat-regular-webfont.woff2")
+  src: url("assets/fonts/montserrat/montserrat-regular-webfont.woff2")
       format("woff2"),
-    url("../../assets/fonts/montserrat/montserrat-regular-webfont.woff")
+    url("assets/fonts/montserrat/montserrat-regular-webfont.woff")
       format("woff");
   font-weight: normal;
   font-style: normal;
@@ -20,9 +19,9 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("../../assets/fonts/montserrat/montserrat-semibold-webfont.woff2")
+  src: url("assets/fonts/montserrat/montserrat-semibold-webfont.woff2")
       format("woff2"),
-    url("../../assets/fonts/montserrat/montserrat-semibold-webfont.woff")
+    url("assets/fonts/montserrat/montserrat-semibold-webfont.woff")
       format("woff");
   font-weight: 600;
   font-style: normal;
