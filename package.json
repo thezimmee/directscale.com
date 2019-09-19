@@ -19,6 +19,7 @@
     "cssnano": "^4.1.10",
     "cssstats": "^3.3.0",
     "get-css-colors": "^3.3.0",
+    "gh-pages": "^2.1.1",
     "highlight.js": "^9.15.6",
     "html-minifier": "^4.0.0",
     "loglevel": "^1.6.1",
@@ -55,7 +56,9 @@
     "prod": "NODE_ENV=production npm run build && npm run serve",
     "prewatch": "rimraf build",
     "watch": "bundle --config=.bundlesrc.js --watch & rollup --config=.rolluprc.js --watch",
-    "serve": "browser-sync start --config=.browsersyncrc.js"
+    "serve": "browser-sync start --config=.browsersyncrc.js",
+    "predeploy": "echo \"Publishing to github pages...\"",
+    "deploy": "gh-pages -d ./build --repo https://thezimmee@github.com/thezimmee/directscale.com.git"
   },
   "main": "build/app.js",
   "keywords": [],
