@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 @media (max-width: 1199px) {
   .off-canvas {
     display: flex;
@@ -44,3 +45,4 @@
     }
   }
 }
+/* purgecss end ignore */
