@@ -130,8 +130,13 @@
       data-fade-bg="true"
       data-center="true"
     >
-      <!-- @todo: Create partners component. -->
-      <partners></partners>
+      <div class="partners">
+        <% if (partners && partners.length) { %><% partners.forEach(partner => {
+        _%>
+        <div class="partner"><icon data-name="<%= partner.logo %>"></icon></div>
+        <div class="partner"><icon data-name="<%= partner.logo %>"></icon></div>
+        <%_ }) %><% } %>
+      </div>
     </hero-section>
 
     <demo></demo>

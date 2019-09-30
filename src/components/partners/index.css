@@ -1,0 +1,57 @@
+.partner {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  margin-top: 2rem;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    max-height: 60px;
+    fill: hsl(0, 0%, 100%);
+  }
+
+  path {
+    fill: inherit;
+  }
+}
+
+@media (--from-tablet) and (--to-desktop) {
+  .partners {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: -1rem;
+  }
+
+  .partner {
+    flex: calc(50% - 2rem) 0 0;
+    margin-left: 2rem;
+
+    &:nth-child(odd) {
+      margin-left: 0;
+      margin-right: 2rem;
+    }
+  }
+}
+
+@media (--from-desktop) {
+  .partners {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: -1rem;
+  }
+
+  .partner {
+    flex: calc(25% - 2rem) 0 0;
+    margin-left: 2rem;
+
+    &:nth-child(4n + 1) {
+      margin-left: 0;
+      margin-right: 2rem;
+    }
+  }
+}
