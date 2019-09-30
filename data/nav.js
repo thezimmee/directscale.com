@@ -2,63 +2,28 @@ module.exports = {
   links: [
     {
       label: 'Platform',
-      children: [
-        {
-          label: 'One',
-          url: '#'
-        }, {
-          label: 'Two',
-          url: '#'
-        }, {
-          label: 'Three',
-          url: '#'
-        }
-      ]
-    }, {
-      label: 'Solutions',
-      children: [
-        {
-          label: 'One',
-          url: '#'
-        }, {
-          label: 'Two',
-          url: '#'
-        }, {
-          label: 'Three',
-          url: '#'
-        }
-      ]
+      url: '/platform'
     }, {
       label: 'Pricing',
-      children: [
-        {
-          label: 'One',
-          url: '#'
-        }, {
-          label: 'Two',
-          url: '#'
-        }, {
-          label: 'Three',
-          url: '#'
-        }
-      ]
+      url: '/pricing'
     }, {
       label: 'Resources',
       children: [
         {
-          label: 'One',
-          url: '#'
+          label: 'Blog',
+          url: '/blog'
         }, {
-          label: 'Two',
-          url: '#'
+          label: 'Events',
+          url: '/events'
         }, {
-          label: 'Three',
-          url: '#'
+          label: 'Partners',
+          url: '/partners'
         }
       ]
     }, {
       label: 'Newsletter',
-      url: '#'
+      url: '//mailchi.mp/directscale/dsdsignup',
+      newTab: true
     }
   ]
 }

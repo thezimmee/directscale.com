@@ -130,9 +130,5 @@
         flex-grow: initial;
       }
     }
-
-    &__socials {
-      margin-left: 1rem;
-    }
   }
 }

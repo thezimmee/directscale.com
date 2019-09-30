@@ -616,6 +616,9 @@ function processComponent ($, config, bundle) {
       // Copy attributes down to first child.
       if (Object.keys(el.attribs).length) {
         Object.keys(el.attribs).forEach(attr => {
+          // Do not copy data- attributes.
+          if (attr.indexOf('data-') === 0) return
+          // If attribute already exists, join old and new.
           const existingAttr = $el.children().first().attr(attr)
           $el.children().first().attr(attr, existingAttr ? [existingAttr, el.attribs[attr]].join(' ') : el.attribs[attr])
         })

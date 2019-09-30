@@ -1,20 +1,13 @@
 <div class="footer">
   <div class="footer__inner">
-    <a class="footer__logo" href="#" title="DirectScale"><icon data-name="logo"></icon></a>
+    <a class="footer__logo" href="//" title="DirectScale"><icon data-name="logo"></icon></a>
     
     <div class="footer__sections">
       <div class="footer__section footer__section--contact">
-        <div class="footer__title">
-          <h3>Contact</h3>
-          <div class="footer__socials">
-            <a href="//facebook.com"><icon data-name="facebook"></icon></a>
-            <a href="//twitter.com"><icon data-name="twitter"></icon></a>
-            <a href="//linkedin.com"><icon data-name="linkedin"></icon></a>
-          </div>
-        </div>
+        <h3 class="footer__title">Contact</h3>
         <p>
-          <%- site.addressFormatted %><br>
-          <%= site.phoneFormatted %>
+          <a href="//goo.gl/maps/ZvogGHNoKY7pcz1F7" target="_blank"><%- site.addressFormatted %></a><br>
+          <a href="tel:<%= site.phone %>"><%= site.phoneFormatted %></a>
         </p>
       </div>
     
@@ -26,6 +19,15 @@
           </ul><% } %>
         </div>
       <%_ }) %>
+
+      <div class="footer__section">
+        <h3 class="footer__title">Social</h3>
+        <div class="footer__socials footer__links">
+          <a href="//facebook.com/directscale" target="_blank"><icon data-name="facebook"></icon></a>
+          <a href="//twitter.com/directscale" target="_blank"><icon data-name="twitter"></icon></a>
+          <a href="//linkedin.com/company/directscale" target="_blank"><icon data-name="linkedin"></icon></a>
+        </div>
+      </div>
     </div>
     
     <div class="footer__notice"><%- site.cookiesNotice %></div>

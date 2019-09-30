@@ -4,44 +4,16 @@ module.exports = [
     links: [
       {
         label: 'Blog',
-        url: '#'
+        url: '//www.directscale.com/blog/'
       }, {
         label: 'Events',
-        url: '#'
-      }, {
-        label: 'Branding',
-        url: '#'
+        url: '//www.directscale.com/events/'
       }, {
         label: 'Newsletter',
-        url: '#'
-      }
-    ]
-  }, {
-    title: 'Support',
-    links: [
-      {
-        label: 'Dropdown 1',
-        url: '#'
+        url: '//mailchi.mp/directscale/dsdsignup'
       }, {
-        label: 'Dropdown 2',
-        url: '#'
-      }, {
-        label: 'Dropdown 3',
-        url: '#'
-      }
-    ]
-  }, {
-    title: 'Legal',
-    links: [
-      {
-        label: 'Privacy Policy',
-        url: '#'
-      }, {
-        label: 'Approved Use',
-        url: '#'
-      }, {
-        label: 'Policy',
-        url: '#'
+        label: 'Support',
+        url: '//help.directscale.com/'
       }
     ]
   }, {
@@ -49,13 +21,24 @@ module.exports = [
     links: [
       {
         label: 'Who We Are',
-        url: '#'
+        url: '//www.directscale.com/who-we-are/'
       }, {
-        label: 'The Team',
-        url: '#'
+        label: 'Partners',
+        url: '//www.directscale.com/partners/#all'
       }, {
         label: 'Careers',
-        url: '#'
+        url: '//www.directscale.com/careers/'
+      }
+    ]
+  }, {
+    title: 'Legal',
+    links: [
+      {
+        label: 'Privacy Policy',
+        url: '//www.directscale.com/legal/privacy-policy/'
+      }, {
+        label: 'Approved Use',
+        url: '//www.directscale.com/approved-use-policy/'
       }
     ]
   }
