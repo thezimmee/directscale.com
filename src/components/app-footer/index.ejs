@@ -1,6 +1,6 @@
 <div class="footer">
   <div class="footer__inner">
-    <a class="footer__logo" href="//" title="DirectScale"><icon data-name="logo"></icon></a>
+    <a class="footer__logo" href="<%= rootPath %>" title="DirectScale"><icon data-name="logo"></icon></a>
     
     <div class="footer__sections">
       <div class="footer__section footer__section--contact">
@@ -15,7 +15,7 @@
         <div class="footer__section">
           <h3 class="footer__title"><%= section.title %></h3>
           <% if (section.links && section.links.length) { %><ul class="footer__links">
-            <% section.links.forEach(link => { %><li class="footer__link"><a href="<%= link.url %>"><%= link.label %></a></li><% }) %>
+            <% section.links.forEach(link => { %><li class="footer__link"><a href="<%= $.url(link.url, rootPath) %>"><%= link.label %></a></li><% }) %>
           </ul><% } %>
         </div>
       <%_ }) %>

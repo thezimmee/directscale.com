@@ -1,6 +1,6 @@
 const postcss = require('postcss')
 const path = require('path')
-const isProduction = ['prod', 'production', 'test'].includes(process.env.NODE_ENV)
+const isProduction = ['production', 'stage', 'test'].includes(process.env.NODE_ENV)
 
 module.exports = (bundle, bundler) => {
   // Grab any config file, if exists, and merge it with bundler options.

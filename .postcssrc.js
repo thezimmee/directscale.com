@@ -1,4 +1,4 @@
-const isProd = ['production', 'test', 'ci'].includes(process.env.NODE_ENV)
+const isProd = ['production', 'stage', 'test', 'ci'].includes(process.env.NODE_ENV)
 // const cssFunctions = require('./src/css/globals.cssfn.js')
 
 module.exports = {
@@ -42,7 +42,7 @@ module.exports = {
       mediaQueries: false
     }),
     require('@fullhuman/postcss-purgecss')({
-      content: ['build/**/*.html', 'build/app.js', 'build/product/index.js'],
+      content: ['build/**/*.html', 'build/app.js', 'build/platform/index.js'],
       whitelist: [],
       whitelistPatterns: [],
       whitelistPatternsChildren: []

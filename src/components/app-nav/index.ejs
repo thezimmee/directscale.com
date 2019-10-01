@@ -6,12 +6,12 @@
         <a class="nav__link"><%= link.label %> <icon data-name="chevron" class="nav__chevron"></icon></a>
         <div class="nav__submenu">
           <% link.children.forEach(function (child) { _%>
-            <a class="nav__sublink" href="<%= child.url %>"><%= child.label %></a>
+            <a class="nav__sublink" href="<%= $.url(child.url, rootPath) %>"><%= child.label %></a>
           <%_ }) %>
         </div>
       </div>
     <%_ } else if (link.url) { _%>
-      <a class="nav__link" href="<%= link.url %>"<% if (link.newTab) { %> target="_blank"<% } %>><%= link.label %></a>
+      <a class="nav__link" href="<%= $.url(link.url, rootPath) %>"<% if (link.newTab) { %> target="_blank"<% } %>><%= link.label %></a>
     <%_ } %>
     <hr>
   <%_ }) %>

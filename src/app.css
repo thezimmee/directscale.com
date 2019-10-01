@@ -32,7 +32,7 @@
 @import "app-header";
 @import "app-footer";
 @import "pages/index.css";
-@import "pages/product";
+@import "pages/platform";
 
 /*
 * Utility classes (src/components/<name>).

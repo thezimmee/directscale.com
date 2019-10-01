@@ -7,6 +7,7 @@
   var bgImage = typeof bgImage === undefined ? '' : bgImage;
   var fadeBg = typeof fadeBg === undefined ? false : fadeBg;
   var theme = typeof theme === undefined ? '' : theme;
+  var rootPath = rootPath === undefined ? '' : rootPath;
 _%>
 <div class="hero<%= flip ? ' hero--flip' : '' %><%= theme ? ` hero--${theme}` : '' %><%= center ? ' hero--centered' : '' %><%= fadeBg ? ' hero--fade-bg' : '' %><%= image ? ' hero--has-image' : '' %>">
   <div class="hero__inner">
@@ -18,11 +19,11 @@ _%>
     </div>
 
     <% if (image) { %><div class="hero__image">
-      <img src="<%= image %>">
+      <img src="<%= $.url(image, rootPath) %>">
     </div><% } %>
 
   </div>
 
-  <% if (bgImage) { %><div class="hero__bg" style="background-image: url('<%= bgImage %>');"></div><% } %>
+  <% if (bgImage) { %><div class="hero__bg" style="background-image: url('<%= $.url(bgImage, rootPath) %>');"></div><% } %>
 
 </div>

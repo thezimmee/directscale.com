@@ -44,7 +44,7 @@ module.exports = (bundle, bundler) => {
       cheerio: {
         decodeEntities: false
       },
-      minify: ['production', 'test'].includes(process.env.NODE_ENV),
+      minify: ['production', 'stage', 'test'].includes(process.env.NODE_ENV),
       minifier: {
         collapseInlineTagWhiteSpace: true,
         collapseWhitespace: true,
@@ -126,7 +126,7 @@ module.exports = (bundle, bundler) => {
   return bundle
 }
 
-function parseHTML (html, { config = {}, bundle = {} } = {}) {
+function parseHTML (html, { config = {}, bundle = {}, parentData = {} } = {}) {
   // Create the dom and plugins.
   const $ = cheerio.load(html, config.cheerio)
 
@@ -134,11 +134,11 @@ function parseHTML (html, { config = {}, bundle = {} } = {}) {
   if (config.components) {
     $.prototype.component = processComponent
     if (config.components.selector) {
-      $(config.components.selector).component($, config, bundle)
+      $(config.components.selector).component($, config, bundle, parentData)
     }
     if (Object.keys(_.components).length) {
       Object.keys(_.components).forEach(tag => {
-        $(tag).component($, config, bundle)
+        $(tag).component($, config, bundle, parentData)
       })
     }
   }
@@ -532,14 +532,16 @@ function addFileToWatcher (filepath, bundle) {
 /*
 * Process components.
 */
-function processComponent ($, config, bundle) {
+function processComponent ($, config, bundle, parentData = {}) {
   this.each((i, el) => {
     const $el = $(el)
-    const data = Object.assign({}, $el.data())
+    let data = Object.assign({}, $el.data())
     // Convert attributes to their correct type, and dash-case to camelCase.
     Object.keys(data).forEach(key => {
+      // Empty value.
+      if (data[key] === '' || data[key] === 'undefined') data[key] = ''
       // Boolean types.
-      if (data[key] === 'true' || data[key] === '') data[key] = true
+      else if (data[key] === 'true') data[key] = true
       else if (data[key] === 'false') data[key] = false
       // Object/Array types.
       else if (
@@ -554,6 +556,7 @@ function processComponent ($, config, bundle) {
         delete data[key]
       }
     })
+    if (parentData && Object.keys(parentData).length) data = Object.assign({}, parentData, data)
 
     // Get template source.
     let template
@@ -573,7 +576,7 @@ function processComponent ($, config, bundle) {
     }
 
     // Cache slotted children and render initial template content.
-    template = parseHTML(ejs.render(template, Object.assign({}, bundle.data, data), config.components.ejs), { config, bundle })
+    template = parseHTML(ejs.render(template, Object.assign({}, bundle.data, data), config.components.ejs), { config, bundle, parentData: data })
     const $children = $el.children()
     $el.prepend(template)
 
@@ -616,9 +619,8 @@ function processComponent ($, config, bundle) {
       // Copy attributes down to first child.
       if (Object.keys(el.attribs).length) {
         Object.keys(el.attribs).forEach(attr => {
-          // Do not copy data- attributes.
-          if (attr.indexOf('data-') === 0) return
-          // If attribute already exists, join old and new.
+          // Do not copy data- attributes. if (attr.indexOf('data-') === 0)
+          // return If attribute already exists, join old and new.
           const existingAttr = $el.children().first().attr(attr)
           $el.children().first().attr(attr, existingAttr ? [existingAttr, el.attribs[attr]].join(' ') : el.attribs[attr])
         })

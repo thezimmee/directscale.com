@@ -2,22 +2,22 @@ module.exports = {
   links: [
     {
       label: 'Platform',
-      url: '/platform'
+      url: 'platform'
     }, {
       label: 'Pricing',
-      url: '/pricing'
+      url: 'pricing'
     }, {
       label: 'Resources',
       children: [
         {
           label: 'Blog',
-          url: '/blog'
+          url: 'blog'
         }, {
           label: 'Events',
-          url: '/events'
+          url: 'events'
         }, {
           label: 'Partners',
-          url: '/partners'
+          url: 'partners'
         }
       ]
     }, {

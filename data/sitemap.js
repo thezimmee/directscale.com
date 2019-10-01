@@ -4,10 +4,10 @@ module.exports = [
     links: [
       {
         label: 'Blog',
-        url: '//www.directscale.com/blog/'
+        url: 'blog'
       }, {
         label: 'Events',
-        url: '//www.directscale.com/events/'
+        url: 'events'
       }, {
         label: 'Newsletter',
         url: '//mailchi.mp/directscale/dsdsignup'
@@ -21,13 +21,13 @@ module.exports = [
     links: [
       {
         label: 'Who We Are',
-        url: '//www.directscale.com/who-we-are/'
+        url: 'who-we-are'
       }, {
         label: 'Partners',
-        url: '//www.directscale.com/partners/#all'
+        url: 'partners/#all'
       }, {
         label: 'Careers',
-        url: '//www.directscale.com/careers/'
+        url: 'careers'
       }
     ]
   }, {
@@ -35,10 +35,10 @@ module.exports = [
     links: [
       {
         label: 'Privacy Policy',
-        url: '//www.directscale.com/legal/privacy-policy/'
+        url: 'legal/privacy-policy'
       }, {
         label: 'Approved Use',
-        url: '//www.directscale.com/approved-use-policy/'
+        url: 'approved-use-policy'
       }
     ]
   }
