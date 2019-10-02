@@ -6,16 +6,18 @@
   padding: 0 1rem;
   appearance: none;
   background-color: var(--ds-dark-blue);
+  border-color: var(--ds-dark-blue);
   border-radius: 2px;
   color: hsl(0, 0%, 100%);
   text-decoration: none;
   text-transform: lowercase;
-  transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out,
+    fill 0.2s ease-in-out;
 
   &:hover,
   &:focus {
-    background-color: var(--ds-gray);
-    border-color: var(--ds-gray);
+    background-color: var(--ds-dark);
+    border-color: var(--ds-dark);
     color: hsl(0, 0%, 100%);
     cursor: pointer;
   }
@@ -27,39 +29,43 @@
   &--icon {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     padding-right: 0.5rem;
-    padding-left: 0.25rem;
+    padding-left: 0.5rem;
     background-color: transparent;
+    border-color: transparent;
     color: var(--dark);
     fill: var(--gray);
 
     svg {
       height: 20px;
-      margin-right: 0.25em;
     }
 
     &:hover,
     &:focus {
       background-color: hsla(0, 0%, 0%, 0.08);
+      border-color: transparent;
       color: var(--dark);
+      fill: var(--dark);
     }
   }
 
   &--primary {
     background-color: var(--ds-orange);
+    border-color: var(--ds-orange);
   }
 
   &--outlined {
     background-color: transparent;
-    border: 2px solid var(--ds-gray);
-    color: var(--ds-gray);
+    border: 2px solid var(--ds-dark);
+    color: var(--ds-dark);
   }
 
   &--tab {
     position: relative;
     background-color: transparent;
     border: 0;
-    color: var(--ds-gray);
+    color: var(--ds-dark);
     font-weight: 600;
     text-transform: uppercase;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;

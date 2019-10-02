@@ -13,6 +13,8 @@
 @import "button";
 @import "icon";
 @import "hamburger";
+@import "field";
+@import "modal";
 @import "toggles";
 @import "off-canvas";
 @import "app-nav";
@@ -25,6 +27,7 @@
 @import "solutions";
 @import "partners";
 @import "demo";
+@import "demo/modal";
 
 /*
 * Views (pages) (src/views/<name>).

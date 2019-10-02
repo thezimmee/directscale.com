@@ -8,7 +8,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    &.toggle__content--is-active {
+    &.toggle--is-active {
       display: flex;
     }
 

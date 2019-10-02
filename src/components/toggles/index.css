@@ -2,21 +2,50 @@
 .toggle {
   cursor: pointer;
 
-  &--is-active {
+  &--grouped&--is-active {
     pointer-events: none;
     cursor: default;
   }
 
   &__content {
     display: none;
+
+    &.toggle--is-active {
+      display: block;
+    }
+
+    &.toggle--is-active[data-toggle-flex] {
+      display: flex;
+    }
   }
 
-  &__content--is-active {
-    display: block;
-  }
-
-  &__content--is-active[data-toggle-flex] {
+  &__tabs {
     display: flex;
+
+    ^&__content {
+      display: block;
+      margin-left: -100%;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out, z-index 0.4s ease-in-out;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &.toggle--in {
+        opacity: 0;
+      }
+      &.toggle--is-active {
+        opacity: 1;
+        z-index: 1;
+      }
+      &.toggle--out {
+        opacity: 0;
+      }
+    }
+    ^&__content[data-toggle-flex] {
+      display: flex;
+    }
   }
 }
 /* purgecss end ignore */

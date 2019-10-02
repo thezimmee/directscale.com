@@ -19,7 +19,7 @@
 
     &:hover,
     &:focus {
-      border-color: var(--ds-gray);
+      border-color: var(--ds-dark);
     }
   }
 }

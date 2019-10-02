@@ -15,13 +15,23 @@
   font-size: 16px;
   text-transform: lowercase;
   z-index: 10;
+
+  &__logo {
+    display: flex;
+    width: 200px;
+
+    svg {
+      width: 100%;
+    }
+  }
+
+  .modal {
+    text-transform: initial;
+  }
 }
 
-.header__logo {
-  display: flex;
-  width: 200px;
-
-  svg {
-    width: 100%;
+.demo {
+  &__disclaimer {
+    font-size: 14px;
   }
 }

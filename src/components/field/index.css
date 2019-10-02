@@ -1,0 +1,61 @@
+.field {
+  position: relative;
+
+  & + & {
+    margin-top: 1rem;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 1em 0.5em 0;
+    border: 1px solid var(--gray);
+    color: var(--dark);
+
+    textarea& {
+      padding-top: 1.4em;
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0.8em;
+    left: 9px;
+    width: 100%;
+    max-width: calc(100% - 1.1em);
+    color: var(--ds-gray);
+    cursor: text;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition-property: top, font-size;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+  }
+
+  &--dirty &__label,
+  &__input:focus + &__label {
+    top: 0.2em;
+    font-size: 0.75em;
+  }
+
+  &--has-error &__input {
+    border-color: var(--red);
+  }
+  &--has-error &__label {
+    color: var(--red);
+  }
+
+  &__error-message {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    order: 99;
+    margin-left: 1em;
+    color: var(--red);
+    font-size: 0.85em;
+  }
+}
