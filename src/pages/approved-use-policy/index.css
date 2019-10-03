@@ -1,0 +1,21 @@
+.approved {
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--ds-gray);
+  }
+
+  &__date {
+    padding-bottom: 0.25rem;
+  }
+
+  &__print {
+    .button--icon {
+      height: 1.75rem;
+      text-transform: uppercase;
+    }
+  }
+}

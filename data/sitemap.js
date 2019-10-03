@@ -28,6 +28,9 @@ module.exports = [
       }, {
         label: 'Careers',
         url: 'careers'
+      }, {
+        label: 'Contact Us',
+        url: 'contact'
       }
     ]
   }, {
@@ -39,6 +42,9 @@ module.exports = [
       }, {
         label: 'Approved Use',
         url: 'approved-use-policy'
+      }, {
+        label: 'Data Processing',
+        url: 'data-processing'
       }
     ]
   }

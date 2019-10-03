@@ -24,6 +24,11 @@
   color: var(--ds-dark-blue);
   margin-bottom: 0.5rem;
   margin-top: 1rem;
+
+  .hero--banner & {
+    margin: 0;
+    font-size: 40px;
+  }
 }
 
 .hero__subtitle {

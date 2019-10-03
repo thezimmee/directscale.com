@@ -1,0 +1,29 @@
+<page data-root-path="../">
+  <div slot="content">
+    <hero-section
+      class="hero--banner"
+      data-heading="Approved Use Policy"
+      data-bg-image="../assets/images/bg.png"
+      data-theme="blue"
+      data-center="true"
+    ></hero-section>
+
+    <hero-section>
+      <div class="approved__header">
+        <div class="approved__date"><%= site.approvedUsePolicyDate %></div>
+        <div class="approved__print">
+          <button
+            class="button button--icon"
+            type="button"
+            onclick="window.print()"
+          >
+            <icon data-name="print"></icon> Print
+          </button>
+        </div>
+      </div>
+      <div class="markup" markdown>
+        <%- include('/pages/approved-use-policy/content.md') %>
+      </div>
+    </hero-section>
+  </div>
+</page>
