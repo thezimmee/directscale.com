@@ -145,12 +145,11 @@
 
   .nav__sublink {
     display: block;
-    color: hsla(0, 0%, 100%, 1);
   }
   .nav__sublink:hover,
   .nav__sublink:focus {
-    background-color: hsla(var(--ds-dark-blue--hue), 100%, 10%, 0.5);
-    color: hsl(0, 0%, 100%);
+    background-color: var(--light-gray);
+    color: var(--ds-dark-blue);
   }
 
   .nav__menu {
@@ -161,7 +160,7 @@
     position: absolute;
     top: calc(100% - 2px);
     min-width: 140%;
-    background-color: hsla(var(--ds-dark-blue--hue), 100%, 37%, 0.8);
+    background-color: hsl(0, 0%, 100%);
     border-top: 2px solid var(--ds-dark-blue);
     box-shadow: 0px 2px 8px hsla(0, 0%, 0%, 0.2);
     transform: perspective(6000px) rotateY(-90deg);
