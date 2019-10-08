@@ -6,5 +6,6 @@ module.exports = {
   nav: require('./nav'),
   pricing: require('./pricing'),
   partners: require('./partners'),
+  blog: require('./blog'),
   $: require('./helpers')
 }

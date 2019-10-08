@@ -1,0 +1,37 @@
+<page data-root-path="../">
+  <div slot="content">
+    <hero-section
+      class="hero--banner"
+      data-heading="The DS Blog"
+      data-bg-image="../assets/images/bg.png"
+      data-theme="blue"
+      data-center="true"
+    ></hero-section>
+
+    <hero-section>
+      <% blog.posts.forEach(post => { _%>
+      <div class="blog__post">
+        <div class="blog__post-image">
+          <a href="<%= post.url %>"
+            ><img src="../<%= post.image %>" alt="Read more"
+          /></a>
+        </div>
+        <div class="blog__post-preview">
+          <h2 class="blog__post-title">
+            <a href="<%= post.url %>"><%= post.title %></a>
+          </h2>
+          <div class="blog__post-meta">
+            <strong><%= post.author %></strong> - <%= post.date %>
+          </div>
+          <div class="blog__post-lede"><%- post.lede %></div>
+          <div class="blog__post-link">
+            <a class="button button--icon" href="<%= post.url %>"
+              >Read more <icon data-name="chevron"></icon
+            ></a>
+          </div>
+        </div>
+      </div>
+      <%_ }) %>
+    </hero-section>
+  </div>
+</page>

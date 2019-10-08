@@ -38,6 +38,7 @@
 @import "pages/index.css";
 @import "pages/platform";
 @import "pages/approved-use-policy";
+@import "pages/blog";
 
 /*
 * Utility classes (src/components/<name>).

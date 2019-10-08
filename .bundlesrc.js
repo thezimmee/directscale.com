@@ -102,7 +102,7 @@ module.exports = {
         {
           run: '@bundles/bundles-output',
           options: {
-            to: 'build',
+            dir: 'build',
             root: 'src/pages',
             incremental: false
           }
